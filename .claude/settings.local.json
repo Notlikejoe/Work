@@ -13,7 +13,9 @@
       "Bash(npm install --save-dev serve)",
       "Bash(ls node_modules/.bin/serve*)",
       "Bash(node node_modules/serve/build/main.js --version)",
-      "Bash(open \"http://localhost:3000/index.html\")"
+      "Bash(open \"http://localhost:3000/index.html\")",
+      "Bash(ls /Users/mjay21/Desktop/MJ/IHA/IHA-investor-update-v2/IHA-investor-update/*.html)",
+      "Bash(grep -rn \"index-v2\\\\|styles\\\\.css\\\\b\" /Users/mjay21/Desktop/MJ/IHA/IHA-investor-update-v2/IHA-investor-update/*.html 2>/dev/null)"
     ]
   }
 }
