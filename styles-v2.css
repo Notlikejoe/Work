@@ -5486,6 +5486,7 @@ body::after {
   height: auto;
   aspect-ratio: 1;
   object-fit: cover;
+  object-position: center 20%;
   border-radius: 50%;
   filter: grayscale(20%);
   transition: filter var(--dur-mid) var(--ease);
