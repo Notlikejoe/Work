@@ -9,7 +9,8 @@
   Elements start visible by default; GSAP overrides only after window.load.
 */
 .inv-reveal {
-  opacity: 1; /* visible until JS overrides */
+  opacity: 1;
+  /* visible until JS overrides */
 }
 
 /*
@@ -17,7 +18,8 @@
   so there is never a flash of invisible content.
 */
 .flow-card {
-  opacity: 1; /* JS will set to 0 then animate to 1 */
+  opacity: 1;
+  /* JS will set to 0 then animate to 1 */
 }
 
 /* -------------------------------------------------------------------------
@@ -104,6 +106,7 @@
 .investor-hero-title em {
   font-style: italic;
   color: var(--gold-accent);
+  font-size: 0.75em;
 }
 
 .investor-hero-subtitle {
@@ -127,8 +130,15 @@
 }
 
 @keyframes fadeUp {
-  from { opacity: 0; transform: translateY(30px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* -------------------------------------------------------------------------
@@ -183,7 +193,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-top: 40px; /* align with card top area */
+  padding-top: 40px;
+  /* align with card top area */
   flex-shrink: 0;
   width: 60px;
 }
