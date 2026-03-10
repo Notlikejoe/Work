@@ -1,100 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="author" content="IH Atelier" />
-    <meta name="robots" content="noindex, follow" />
-    <meta name="theme-color" content="#0a0a0a" />
-    <title>Page Not Found | IHA Design & Build</title>
-    <link rel="stylesheet" href="styles-v2.css?v=1772480796" />
-    <!-- GSAP + ScrollTrigger -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-    <!-- Lenis Smooth Scroll -->
-    <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
-  </head>
-  <body class="error-page" style="overflow-y: hidden;">
-    <!-- Navigation (matches about.html: transparent over hero, no border) -->
-    <nav class="navbar" style="mix-blend-mode: difference;">
-      <div class="nav-logo" style="position: relative; left: 24px; transform: none;">
-        <a href="index.html"><img src="images/IHA Logo (Black).png" alt="IH Atelier" class="nav-logo-img" style="filter: invert(1);" /></a>
-      </div>
-      <div class="menu-btn" id="menu-btn" style="color: #fff;">
-        <span class="lines" style="background-color: #fff;"></span>
-        <span class="lines" style="background-color: #fff;"></span>
-        Menu
-      </div>
-    </nav>
 
-    <!-- Fullscreen Menu Overlay -->
-    <div class="menu-overlay" id="menu-overlay">
-      <button type="button" class="menu-close-btn" id="menu-close-btn" aria-label="Close menu">&times;</button>
-      <ul class="menu-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About Us</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="contact.html">Contact Us</a></li>
-      </ul>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="IH Atelier" />
+  <meta name="robots" content="noindex, follow" />
+  <meta name="theme-color" content="#0a0a0a" />
+  <title>Page Not Found | IHA Design & Build</title>
+  <link rel="stylesheet" href="styles-v2.css?v=1772480796" />
+  <!-- GSAP + ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <!-- Lenis Smooth Scroll -->
+  <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+</head>
+
+<body class="error-page" style="overflow-y: hidden;">
+  <!-- Navigation (matches about.html: transparent over hero, no border) -->
+  <nav class="navbar" style="mix-blend-mode: difference;">
+    <div class="nav-logo" style="position: relative; left: 24px; transform: none;">
+      <a href="index.html"><img src="images/IHA Logo (Black).png" alt="IH Atelier" class="nav-logo-img"
+          style="filter: invert(1);" /></a>
     </div>
+    <div class="menu-btn" id="menu-btn" style="color: #fff;">
+      <span class="lines" style="background-color: #fff;"></span>
+      <span class="lines" style="background-color: #fff;"></span>
+      Menu
+    </div>
+  </nav>
 
-    <!-- 404 Hero Section -->
-    <section class="error-hero">
-      <div class="wireframe-bg-projects error-wireframe"></div>
-      
-      <!-- Vertical lines -->
-      <div class="guide-line error-left-guide"></div>
-      <div class="guide-line error-right-guide"></div>
+  <!-- Fullscreen Menu Overlay -->
+  <div class="menu-overlay" id="menu-overlay">
+    <button type="button" class="menu-close-btn" id="menu-close-btn" aria-label="Close menu">&times;</button>
+    <ul class="menu-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+  </div>
 
-      <div class="error-content tilt3d">
-        <h1 class="error-title">Page not found</h1>
-        <p class="error-subtitle">This page doesn't exist or has been moved</p>
-        
-        <a href="index.html" class="all-works-btn go-home-btn" style="background-color: #f8f8f8;">
-            <span class="btn-icon">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
-            </span>
-            <span class="btn-text">Go back home</span>
-        </a>
+  <!-- 404 Hero Section -->
+  <section class="error-hero">
+    <div class="wireframe-bg-projects error-wireframe"></div>
+
+    <!-- Vertical lines -->
+    <div class="guide-line error-left-guide"></div>
+    <div class="guide-line error-right-guide"></div>
+
+    <div class="error-content tilt3d">
+      <h1 class="error-title">Page not found</h1>
+      <p class="error-subtitle">This page doesn't exist or has been moved</p>
+
+      <a href="index.html" class="all-works-btn go-home-btn" style="background-color: #f8f8f8;">
+        <span class="btn-icon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </span>
+        <span class="btn-text">Go back home</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer with IH Group branding -->
+  <footer class="footer" data-cursor-invert>
+    <div class="footer-container">
+      <div class="footer-logo">
+        <h1>IHA</h1>
+        <p>Design &amp; Build</p>
       </div>
-    </section>
-
-    <!-- Footer with IH Group branding -->
-    <footer class="footer" data-cursor-invert>
-      <div class="footer-container">
-        <div class="footer-logo">
-          <h1>IHA</h1>
-          <p>Design &amp; Build</p>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Location</h4>
+          <p>Bay Square, Business Bay, Dubai</p>
+          <br />
+          <h4>Email</h4>
+          <p>contact@ihgroup.in</p>
         </div>
-        <div class="footer-links">
-          <div class="footer-col">
-            <h4>Location</h4>
-            <p>Bay Square, Business Bay, Dubai</p>
-            <br />
-            <h4>Email</h4>
-            <p>contact@ihgroup.in</p>
-          </div>
-          <div class="footer-col right-align">
-            <h4>Call for Works</h4>
-            <p><a href="tel:+971526786001" style="color: inherit; text-decoration: none;">+971 526786001</a></p>
-            <br />
-            <p>To join our team, kindly drop<br />your resume at<br /><strong>career@ihgroup.in</strong></p>
-          </div>
+        <div class="footer-col right-align">
+          <h4>Call for Works</h4>
+          <p><a href="tel:+971526786001" style="color: inherit; text-decoration: none;">+971 526786001</a></p>
+          <br />
+          <p>To join our team, kindly drop<br />your resume at<br /><strong>career@ihgroup.in</strong></p>
         </div>
       </div>
-      <div class="footer-bottom">
-        <div class="footer-ih-group">A part of <span class="ih-group-brand">IH Group</span></div>
-        <p>IH Atelier &copy; 2026 &nbsp;—&nbsp; All rights reserved</p>
-      </div>
-    </footer>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-ih-group">A part of <span class="ih-group-brand">IH Group</span></div>
+      <p>IH Atelier &copy; 2026 &nbsp;—&nbsp; All rights reserved</p>
+    </div>
+  </footer>
 
-    <script src="script.js?v=1772479700"></script>
-    <!-- Back to Top Button -->
+  <script src="script-v2.js?v=1772479700" defer></script>
+  <!-- Back to Top Button -->
   <button type="button" class="back-to-top" id="back-to-top" aria-label="Back to top">
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-      <path d="M18 15l-6-6-6 6"/>
+      <path d="M18 15l-6-6-6 6" />
     </svg>
   </button>
 </body>
+
 </html>
