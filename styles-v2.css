@@ -2219,35 +2219,8 @@ body.loading .loader-text {
 
 .service-card-3d:hover .service-card-bg {
   background: rgba(107, 122, 140, 0.06);
-  border-color: var(--gold-accent);
-  box-shadow: var(--shadow);
-}
-
-/* Service Card Glow Variants - by data-service */
-.service-card-3d[data-service="interior"]:hover .service-card-bg,
-.service-card-3d[data-service="project-management"]:hover .service-card-bg {
-  border-color: #d4a574 !important;
-  box-shadow: 0 8px 48px rgba(212, 165, 116, 0.35), 0 0 80px rgba(212, 165, 116, 0.3) !important;
-}
-
-.service-card-3d[data-service="architecture"]:hover .service-card-bg {
-  border-color: #a0958a !important;
-  box-shadow: 0 8px 48px rgba(160, 149, 138, 0.35), 0 0 80px rgba(160, 149, 138, 0.3) !important;
-}
-
-.service-card-3d[data-service="approvals"]:hover .service-card-bg {
-  border-color: #8a9a9d !important;
-  box-shadow: 0 8px 48px rgba(138, 154, 157, 0.35), 0 0 80px rgba(138, 154, 157, 0.3) !important;
-}
-
-.service-card-3d[data-service="landscape"]:hover .service-card-bg {
-  border-color: #b8c4c8 !important;
-  box-shadow: 0 8px 48px rgba(184, 196, 200, 0.4), 0 0 80px rgba(184, 196, 200, 0.35) !important;
-}
-
-.service-card-3d[data-service="contracting"]:hover .service-card-bg {
-  border-color: #c9a962 !important;
-  box-shadow: 0 8px 48px rgba(201, 169, 98, 0.4), 0 0 80px rgba(201, 169, 98, 0.3) !important;
+  border-color: #8a9a9d;
+  box-shadow: 0 8px 48px rgba(138, 154, 157, 0.35), 0 0 80px rgba(138, 154, 157, 0.3);
 }
 
 .service-card-content {
