@@ -1,0 +1,518 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="IH Atelier" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#0a0a0a" />
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg" />
+  <title>IH Atelier — Design & Build</title>
+  <meta name="description"
+    content="IH Atelier crafts extraordinary living environments — private architectural statements for those who expect more." />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="IH Atelier — Design & Build" />
+  <meta property="og:description"
+    content="IH Atelier crafts extraordinary living environments — private architectural statements for those who expect more." />
+  <meta property="og:url" content="https://ihatelier.com" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="IH Atelier — Design & Build" />
+  <meta name="twitter:description"
+    content="IH Atelier crafts extraordinary living environments — private architectural statements for those who expect more." />
+
+  <!-- Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet" />
+
+  <!-- Preload critical assets -->
+  <link rel="preload" as="image" href="images/New IHA Logo (Black).png" fetchpriority="high" />
+  <link rel="preload" as="image" href="images/architecture.png" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles-v2.css?v=1772480796" />
+  <link rel="canonical" href="https://ihatelier.com/" />
+
+  <!-- Three.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.160.0/three.min.js"></script>
+
+  <!-- GSAP + ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <!-- Lenis Smooth Scroll -->
+  <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ArchitectureFirm",
+    "name": "IH Atelier",
+    "description": "IH Atelier crafts extraordinary living environments — private architectural statements for those who expect more.",
+    "url": "https://ihatelier.com",
+    "telephone": "+971-526786001",
+    "email": "contact@ihgroup.in",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Dubai",
+      "addressRegion": "Business Bay",
+      "addressCountry": "AE"
+    }
+  }
+  </script>
+</head>
+
+<body class="loading">
+
+  <!-- Skip to main content (accessibility) -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Page Loader -->
+  <div class="page-loader">
+    <div class="loader-content">
+      <img src="images/New IHA Logo (Black).png" alt="IHA" class="loader-logo-img" fetchpriority="high"
+        decoding="sync" />
+    </div>
+  </div>
+
+  <!-- Page Transition -->
+  <div class="page-transition"></div>
+
+  <!-- Scroll Progress Bar -->
+
+  <!-- Custom Cursor -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursor-follower"></div>
+
+  <!-- Three.js Hero Canvas -->
+  <canvas id="hero-canvas"></canvas>
+
+  <!-- Ambient Orbs -->
+  <div class="orb" style="top: 15%; right: 10%; width: 500px; height: 500px;"></div>
+  <div class="orb" style="bottom: 5%; left: 5%; width: 700px; height: 700px; animation-delay: -8s;"></div>
+
+  <!-- Navigation - Centered Logo -->
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-logo"><a href="index.html"><img src="images/New IHA Logo (Black).png" alt="IH Atelier"
+          class="nav-logo-img" /></a></div>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link active">Home</a>
+      <a href="services.html" class="nav-link">Services</a>
+      <a href="projects.html" class="nav-link">Projects</a>
+      <a href="investor.html" class="nav-link">Investor</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+    </div>
+    <a href="contact.html" class="nav-cta">Begin Your Project</a>
+    <div class="menu-btn" id="menu-btn">
+      <span class="lines"></span>
+      <span class="lines"></span>
+    </div>
+  </nav>
+
+  <!-- Fullscreen Menu Overlay -->
+  <div class="menu-overlay" id="menu-overlay">
+    <button type="button" class="menu-close-btn" id="menu-close-btn" aria-label="Close menu">&times;</button>
+    <ul class="menu-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="investor.html">Investor</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <!-- Layer 1: Background Image -->
+    <div class="hero-parallax-layer" data-depth="0.03">
+      <div class="hero-photo"></div>
+    </div>
+
+    <!-- Layer 2: Light Overlay -->
+    <div class="hero-overlay"></div>
+
+    <!-- Layer 3: Subtle Grid -->
+    <div class="hero-parallax-layer" data-depth="0.08">
+      <div class="hero-grid">
+        <div class="hg-line"></div>
+        <div class="hg-line"></div>
+        <div class="hg-line"></div>
+        <div class="hg-line"></div>
+      </div>
+    </div>
+
+    <!-- Layer 4: Brand Statement -->
+    <div class="hero-parallax-layer" data-depth="0.15">
+      <div class="hero-box">
+        <p class="hero-pretitle">Architecture & Interiors</p>
+        <h1 class="hero-brand"><img src="images/New IHA Logo (Black).png" alt="IH Atelier" class="hero-brand-logo"
+            fetchpriority="high" decoding="sync" /></h1>
+        <p class="hero-subtitle">Crafting Extraordinary Spaces in Dubai</p>
+      </div>
+    </div>
+
+    <!-- Scroll Indicator -->
+    <div class="scroll-indicator">
+      <div class="scroll-line"></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- Client Logos Strip - Slideshow -->
+  <div class="client-logos-container">
+    <div class="client-logos-track">
+      <div class="client-logos-slide">
+        <h3 class="logo-item">Joyalukkas</h3>
+        <h3 class="logo-item">VanHeusen</h3>
+        <h3 class="logo-item">DLF</h3>
+        <h3 class="logo-item">Cognizant</h3>
+        <h3 class="logo-item">Samsung</h3>
+      </div>
+      <div class="client-logos-slide">
+        <h3 class="logo-item">Joyalukkas</h3>
+        <h3 class="logo-item">VanHeusen</h3>
+        <h3 class="logo-item">DLF</h3>
+        <h3 class="logo-item">Cognizant</h3>
+        <h3 class="logo-item">Samsung</h3>
+      </div>
+    </div>
+  </div>
+
+  <!-- View & Feel Section -->
+  <section class="view-feel">
+    <div class="image-wrapper architecture-img" id="img-architecture">
+      <img src="images/architecture.png" fetchpriority="high" alt="Modern Villa Exterior" decoding="async" width="1456"
+        height="753" style="object-fit:cover;width:100%;height:100%;" />
+      <div class="img-overlay"></div>
+    </div>
+    <div class="black-banner">
+      <h2 class="reveal-up">
+        We build the <strong>VIEW</strong> outside<br />We define the <strong>FEEL</strong> inside
+      </h2>
+    </div>
+    <div class="image-wrapper interior-img" id="img-interior">
+      <img src="images/interior.png" alt="Luxurious Living Room Interior" decoding="async" width="2912" height="1632"
+        style="object-fit:cover;width:100%;height:100%;" />
+      <div class="img-overlay"></div>
+    </div>
+  </section>
+
+  <!-- Our Projects Section — Horizontal Scroll Gallery -->
+  <section class="projects" id="projects">
+    <div class="projects-header">
+      <h2 class="huge-title reveal-up">Our Projects:</h2>
+    </div>
+    <!-- Projects Infinite Carousel -->
+    <div class="carousel-outer">
+      <div class="projects-carousel-viewport">
+        <div class="projects-carousel-track" id="projects-carousel-track">
+
+          <!-- Clone A: Villa Alpina (4th real, 2nd-to-last) -->
+          <div class="project-card carousel-card tilt-card" aria-hidden="true" data-project-gallery data-project-folder="Villa Alpina" data-project-title="Villa Alpina" role="button" tabindex="-1">
+            <div class="card-img-wrapper">
+              <img src="images/project-4.png" alt="Villa Alpina" loading="lazy" decoding="async" />
+              <div class="card-logo"><img src="images/New IHA Logo (Black).png" alt="IHA" class="card-logo-img" /></div>
+              <div class="card-overlay"></div>
+            </div>
+            <div class="card-info">
+              <h3>Villa Alpina</h3>
+              <div class="card-noir-line"></div>
+              <p>Dubai, UAE &nbsp;·&nbsp; 2022</p>
+            </div>
+          </div>
+
+          <!-- Clone B: Azure Crest Villa (5th real, last) -->
+          <div class="project-card carousel-card tilt-card" aria-hidden="true" data-project-gallery data-project-folder="Azure crest villa" data-project-title="Azure Crest Villa" role="button" tabindex="-1">
+            <div class="card-img-wrapper">
+              <img src="images/project-5.png" alt="Azure Crest Villa" loading="lazy" decoding="async" />
+              <div class="card-logo"><img src="images/New IHA Logo (Black).png" alt="IHA" class="card-logo-img" /></div>
+              <div class="card-overlay"></div>
+            </div>
+            <div class="card-info">
+              <h3>Azure Crest Villa</h3>
+              <div class="card-noir-line"></div>
+              <p>Dubai, UAE &nbsp;·&nbsp; 2024</p>
+            </div>
+          </div>
+
+          <!-- Real card 1: Golf View Villa -->
+          <div class="project-card carousel-card tilt-card" data-project-gallery data-project-folder="Golf view villa" data-project-title="Golf View Villa" role="button" tabindex="0">
+            <div class="card-img-wrapper">
+              <img src="images/project-1.png" alt="Golf View Villa" loading="lazy" decoding="async" />
+              <div class="card-logo"><img src="images/New IHA Logo (Black).png" alt="IHA" class="card-logo-img" /></div>
+              <div class="card-overlay"></div>
+            </div>
+            <div class="card-info">
+              <h3>Golf View Villa</h3>
+              <div class="card-noir-line"></div>
+              <p>Dubai, UAE &nbsp;·&nbsp; 2019</p>
+            </div>
+          </div>
+
+          <!-- Real card 2: Palatial Concept -->
+          <div class="project-card carousel-card tilt-card" data-project-gallery data-project-folder="palatial concept" data-project-title="Palatial Concept" role="button" tabindex="0">
+            <div class="card-img-wrapper">
+              <img src="images/project-2.png" alt="Palatial Concept" loading="lazy" decoding="async" />
+              <div class="card-logo"><img src="images/New IHA Logo (Black).png" alt="IHA" class="card-logo-img" /></div>
+              <div class="card-overlay"></div>
+            </div>
+            <div class="card-info">
+              <h3>Palatial Concept</h3>
+              <div class="card-noir-line"></div>
+              <p>Dubai, UAE &nbsp;·&nbsp; 2021</p>
+            </div>
+          </div>
+
+          <!-- Real card 3: Skylife -->
+          <div class="project-card carousel-card tilt-card" data-project-gallery data-project-folder="Skylife" data-project-title="Skylife" role="button" tabindex="0">
+            <div class="card-img-wrapper">
+              <img src="images/project-3.png" alt="Skylife" loading="lazy" decoding="async" />
+              <div class="card-logo"><img src="images/New IHA Logo (Black).png" alt="IHA" class="card-logo-img" /></div>
+              <div class="card-overlay"></div>
+            </div>
+            <div class="card-info">
+              <h3>Skylife</h3>
+              <div class="card-noir-line"></div>
+              <p>Dubai, UAE &nbsp;·&nbsp; 2023</p>
+            </div>
+          </div>
+
+          <!-- Real card 4: Villa Alpina -->
+          <div class="project-card carousel-card tilt-card" data-project-gallery data-project-folder="Villa Alpina" data-project-title="Villa Alpina" role="button" tabindex="0">
+            <div class="card-img-wrapper">
+              <img src="images/project-4.png" alt="Villa Alpina" loading="lazy" decoding="async" />
+              <div class="card-logo"><img src="images/New IHA Logo (Black).png" alt="IHA" class="card-logo-img" /></div>
+              <div class="card-overlay"></div>
+            </div>
+            <div class="card-info">
+              <h3>Villa Alpina</h3>
+              <div class="card-noir-line"></div>
+              <p>Dubai, UAE &nbsp;·&nbsp; 2022</p>
+            </div>
+          </div>
+
+          <!-- Real card 5: Azure Crest Villa -->
+          <div class="project-card carousel-card tilt-card" data-project-gallery data-project-folder="Azure crest villa" data-project-title="Azure Crest Villa" role="button" tabindex="0">
+            <div class="card-img-wrapper">
+              <img src="images/project-5.png" alt="Azure Crest Villa" loading="lazy" decoding="async" />
+              <div class="card-logo"><img src="images/New IHA Logo (Black).png" alt="IHA" class="card-logo-img" /></div>
+              <div class="card-overlay"></div>
+            </div>
+            <div class="card-info">
+              <h3>Azure Crest Villa</h3>
+              <div class="card-noir-line"></div>
+              <p>Dubai, UAE &nbsp;·&nbsp; 2024</p>
+            </div>
+          </div>
+
+          <!-- Clone C: Golf View Villa (1st real, first after real cards) -->
+          <div class="project-card carousel-card tilt-card" aria-hidden="true" data-project-gallery data-project-folder="Golf view villa" data-project-title="Golf View Villa" role="button" tabindex="-1">
+            <div class="card-img-wrapper">
+              <img src="images/project-1.png" alt="Golf View Villa" loading="lazy" decoding="async" />
+              <div class="card-logo"><img src="images/New IHA Logo (Black).png" alt="IHA" class="card-logo-img" /></div>
+              <div class="card-overlay"></div>
+            </div>
+            <div class="card-info">
+              <h3>Golf View Villa</h3>
+              <div class="card-noir-line"></div>
+              <p>Dubai, UAE &nbsp;·&nbsp; 2019</p>
+            </div>
+          </div>
+
+          <!-- Clone D: Palatial Concept (2nd real, second after real cards) -->
+          <div class="project-card carousel-card tilt-card" aria-hidden="true" data-project-gallery data-project-folder="palatial concept" data-project-title="Palatial Concept" role="button" tabindex="-1">
+            <div class="card-img-wrapper">
+              <img src="images/project-2.png" alt="Palatial Concept" loading="lazy" decoding="async" />
+              <div class="card-logo"><img src="images/New IHA Logo (Black).png" alt="IHA" class="card-logo-img" /></div>
+              <div class="card-overlay"></div>
+            </div>
+            <div class="card-info">
+              <h3>Palatial Concept</h3>
+              <div class="card-noir-line"></div>
+              <p>Dubai, UAE &nbsp;·&nbsp; 2021</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <button type="button" class="carousel-arrow carousel-arrow-prev" id="proj-prev"
+        aria-label="Previous project">&#8249;</button>
+      <button type="button" class="carousel-arrow carousel-arrow-next" id="proj-next"
+        aria-label="Next project">&#8250;</button>
+    </div><!-- /.carousel-outer -->
+    <div class="all-projects-link reveal-up" style="margin-top: var(--sp-5); text-align: center;">
+      <a href="projects.html">All Projects &rarr;</a>
+    </div>
+  </section>
+
+  <!-- Investor Teaser Section -->
+  <section class="investor-teaser-section" id="investor-teaser">
+    <div class="investor-teaser-header">
+      <div class="section-label reveal-up"><span class="dot"></span> Investment Arm</div>
+      <h2 class="investor-teaser-title reveal-up">Real Estate Investment,<br><em>Managed End-to-End</em></h2>
+      <p class="investor-teaser-sub reveal-up">We acquire undervalued properties in Dubai, transform them through
+        intelligent renovation, and position them for maximum returns.</p>
+    </div>
+    <div class="investor-teaser-metrics-row reveal-up">
+      <div class="teaser-metric-item">
+        <div class="teaser-metric-num">35%+</div>
+        <div class="teaser-metric-label">Avg. Return Per Project</div>
+      </div>
+      <div class="teaser-metric-sep" aria-hidden="true"></div>
+      <div class="teaser-metric-item">
+        <div class="teaser-metric-num">AED 120M+</div>
+        <div class="teaser-metric-label">Portfolio Value</div>
+      </div>
+      <div class="teaser-metric-sep" aria-hidden="true"></div>
+      <div class="teaser-metric-item">
+        <div class="teaser-metric-num">18 Mo.</div>
+        <div class="teaser-metric-label">Avg. Project Cycle</div>
+      </div>
+      <div class="teaser-metric-sep" aria-hidden="true"></div>
+      <div class="teaser-metric-item">
+        <div class="teaser-metric-num">12+</div>
+        <div class="teaser-metric-label">Projects Completed</div>
+      </div>
+    </div>
+    <div class="investor-teaser-footer reveal-up">
+      <a href="investor.html" class="investor-teaser-cta"><span>Explore Investment Opportunities →</span></a>
+    </div>
+  </section>
+
+  <!-- About / Blueprint Section -->
+  <section class="blueprint-section" id="blueprint-section">
+    <div class="blueprint-left">
+      <div class="section-label reveal-up"><span class="dot"></span> About Us</div>
+      <h2 class="blueprint-heading reveal-up">
+        At IH Atelier,<br>Interiors Are<br>Not Styled —<br><em>They Are<br>Composed.</em>
+      </h2>
+      <p class="blueprint-body reveal-up">
+        We design to engage the senses and ease the mind — crafting environments
+        that restore equilibrium, evoke emotion, and reflect the individuality of
+        those who inhabit them.
+      </p>
+      <p class="blueprint-subtext reveal-up">
+        Every project is a quiet statement of refinement — a balance between
+        science and soul, precision and poetry.
+      </p>
+      <div class="blueprint-quote reveal-up">
+        <blockquote>
+          <p>"They understood our vision before we articulated it."</p>
+          <cite>— Private Client, Emirates Hills</cite>
+        </blockquote>
+      </div>
+    </div>
+    <div class="blueprint-right">
+      <canvas id="about-blueprint-canvas"></canvas>
+      <div class="blueprint-badge">IH Atelier — DESIGN &amp; BUILD</div>
+      <div class="blueprint-grid-overlay"></div>
+    </div>
+  </section>
+
+  <!-- Conclusion Section -->
+  <section class="conclusion-section">
+    <div class="conclusion-content">
+      <div class="section-label"><span class="dot"></span> Begin Your Journey</div>
+      <h2 class="conclusion-title">Let's Create Something<br><em>Extraordinary</em></h2>
+      <p class="conclusion-text">From concept to completion, we transform visions into timeless spaces.</p>
+      <a href="contact.html" class="conclusion-cta"><span>Start Your Project</span></a>
+    </div>
+  </section>
+
+  <footer class="footer" data-cursor-invert>
+    <div class="footer-container">
+      <div class="footer-logo">
+        <h1><img src="images/New IHA Logo (Black).png" alt="IH Atelier" class="footer-brand-logo" /></h1>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <p><a href="index.html">Home</a></p>
+          <p><a href="services.html">Services</a></p>
+          <p><a href="projects.html">Projects</a></p>
+          <p><a href="about.html">About</a></p>
+          <p><a href="contact.html">Contact</a></p>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <p>Interior Design</p>
+          <p>Architecture</p>
+          <p>Contracting</p>
+          <p>Project Management</p>
+        </div>
+        <div class="footer-col">
+          <h4>Location</h4>
+          <p>Bay Square, Business Bay</p>
+          <p>Dubai, UAE</p>
+          <p style="margin-top: 0.5rem;"><a href="mailto:contact@ihgroup.in">contact@ihgroup.in</a></p>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <p><a href="tel:+971526786001" style="color: #fff; font-size: 1rem;">+971 526786001</a></p>
+          <p style="margin-top: 0.5rem; font-size: 0.7rem;">Careers:</p>
+          <p><a href="mailto:career@ihgroup.in" style="color: var(--gold-accent);">career@ihgroup.in</a></p>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-ih-group">A part of <span class="ih-group-brand">IH Group</span></div>
+      <p>IH Atelier &copy; 2026 &nbsp;—&nbsp; All rights reserved</p>
+    </div>
+  </footer>
+
+  <!-- Project Gallery Modal (shared with projects page) -->
+  <div id="project-gallery-modal" class="project-gallery-modal" aria-hidden="true">
+    <div id="project-gallery-overlay" class="project-gallery-overlay"></div>
+    <div class="project-gallery-content">
+      <div class="project-gallery-header">
+        <h2 id="project-gallery-title" class="project-gallery-title"></h2>
+        <button type="button" id="project-gallery-close" class="project-gallery-close" aria-label="Close gallery">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 6L6 18M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+      <div class="project-gallery-main">
+        <button type="button" id="project-gallery-prev" class="project-gallery-nav project-gallery-prev"
+          aria-label="Previous image">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M15 18l-6-6 6-6" />
+          </svg>
+        </button>
+        <img id="project-gallery-main-img" class="project-gallery-main-img" src="" alt="" />
+        <button type="button" id="project-gallery-next" class="project-gallery-nav project-gallery-next"
+          aria-label="Next image">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M9 18l6-6-6-6" />
+          </svg>
+        </button>
+      </div>
+      <div class="project-gallery-footer">
+        <span id="project-gallery-counter" class="project-gallery-counter"></span>
+        <div id="project-gallery-thumbnails" class="project-gallery-thumbnails"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script-v2.js?v=1772479700" defer></script>
+  <script src="projects-gallery.js" defer></script>
+  <!-- Back to Top Button -->
+  <button type="button" class="back-to-top" id="back-to-top" aria-label="Back to top">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M18 15l-6-6-6 6" />
+    </svg>
+  </button>
+</body>
+
+</html>

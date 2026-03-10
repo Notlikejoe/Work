@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="IH Atelier" />
+  <meta name="robots" content="index, follow" />
+  <meta name="description"
+    content="IH Atelier manages real estate investment end-to-end — acquisition, renovation, and resale in Dubai's luxury property market." />
+  <meta name="theme-color" content="#0a0a0a" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://ihatelier.com/investor" />
+  <meta property="og:title" content="Investor | IH Atelier" />
+  <meta property="og:description"
+    content="Dubai real estate investment, managed end-to-end. Acquisition, renovation, and resale by IH Atelier." />
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg" />
+  <title>Investor | IH Atelier</title>
+
+  <!-- Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles-v2.css" />
+  <link rel="stylesheet" href="investor.css" />
+  <link rel="canonical" href="https://ihatelier.com/investor" />
+
+  <!-- Three.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.160.0/three.min.js"></script>
+
+  <!-- GSAP + ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <!-- Lenis Smooth Scroll -->
+  <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ArchitectureFirm",
+    "name": "IH Atelier",
+    "description": "IH Atelier manages real estate investment end-to-end in Dubai.",
+    "url": "https://ihatelier.com",
+    "telephone": "+971-526786001",
+    "email": "contact@ihgroup.in"
+  }
+  </script>
+</head>
+
+<body>
+
+  <!-- Skip to main content -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Page Loader hidden -->
+  <div class="page-loader" style="display:none;"></div>
+
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursor-follower"></div>
+
+  <!-- Ambient Orbs -->
+  <div class="orb" style="top: 8%; left: 20%; width: 420px; height: 420px;"></div>
+  <div class="orb" style="top: 55%; right: 8%; width: 480px; height: 480px; animation-delay: -3s;"></div>
+
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-logo">
+      <a href="index.html"><img src="images/New IHA Logo (Black).png" alt="IH Atelier" class="nav-logo-img" /></a>
+    </div>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="services.html" class="nav-link">Services</a>
+      <a href="projects.html" class="nav-link">Projects</a>
+      <a href="investor.html" class="nav-link active">Investor</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+    </div>
+    <a href="contact.html" class="nav-cta">Begin Your Project</a>
+    <div class="menu-btn" id="menu-btn">
+      <span class="lines"></span>
+      <span class="lines"></span>
+    </div>
+  </nav>
+
+  <!-- Fullscreen Menu Overlay -->
+  <div class="menu-overlay" id="menu-overlay">
+    <button type="button" class="menu-close-btn" id="menu-close-btn" aria-label="Close menu">&times;</button>
+    <ul class="menu-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="investor.html">Investor</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+  </div>
+
+  <main id="main-content">
+
+    <!-- =====================================================================
+         HERO SECTION
+         ===================================================================== -->
+    <section class="investor-hero" aria-label="Investor hero">
+      <div class="investor-hero-bg"></div>
+      <div class="investor-hero-content">
+        <p class="investor-hero-pretitle">Investment Arm</p>
+        <h1 class="investor-hero-title">
+          Real Estate Investment,<br><em>Managed End-to-End</em>
+        </h1>
+        <p class="investor-hero-subtitle">
+          Dubai presents exceptional opportunities for property investors, but successful investments require the right
+          acquisition strategy, intelligent renovation, and strong resale positioning.
+        </p>
+        <div class="investor-hero-divider"></div>
+      </div>
+    </section>
+
+
+    <!-- =====================================================================
+         METRICS / KEY NUMBERS SECTION
+         ===================================================================== -->
+    <section class="investor-metrics" aria-label="Key investment metrics">
+      <div class="metrics-inner">
+
+        <div class="metric-item inv-reveal">
+          <div class="metric-num" data-count="35" data-suffix="%+">0%</div>
+          <div class="metric-label">Avg. Return Per Project</div>
+        </div>
+
+        <div class="metric-sep" aria-hidden="true"></div>
+
+        <div class="metric-item inv-reveal">
+          <div class="metric-num" data-count="120" data-prefix="AED " data-suffix="M+">AED 0M</div>
+          <div class="metric-label">Portfolio Value</div>
+        </div>
+
+        <div class="metric-sep" aria-hidden="true"></div>
+
+        <div class="metric-item inv-reveal">
+          <div class="metric-num" data-count="18" data-suffix=" Mo.">0 Mo.</div>
+          <div class="metric-label">Avg. Project Cycle</div>
+        </div>
+
+        <div class="metric-sep" aria-hidden="true"></div>
+
+        <div class="metric-item inv-reveal">
+          <div class="metric-num" data-count="12" data-suffix="+">0</div>
+          <div class="metric-label">Projects Completed</div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         INVESTMENT FLOW SECTION
+         ===================================================================== -->
+    <section class="investor-flow" id="investment-process" aria-label="Investment process">
+
+      <div class="investor-flow-header">
+        <!-- NOTE: no reveal-up here — investor.js handles all section animations -->
+        <div class="section-label text-center inv-reveal">
+          <span class="dot"></span> Investment Process
+        </div>
+        <h2 class="investor-flow-title inv-reveal">
+          Three Stages.<br>One Integrated Strategy.
+        </h2>
+      </div>
+
+      <!-- Horizontal timeline (desktop) / vertical (mobile) -->
+      <div class="investor-flow-track" id="flow-track" role="list">
+
+        <!-- Stage 01 — Acquisition -->
+        <article class="flow-card" role="listitem" aria-label="Stage 1: Acquisition">
+          <div class="flow-card-number">01</div>
+          <h3 class="flow-card-title">Acquisition</h3>
+          <p class="flow-card-desc">
+            Identifying undervalued villas and opportunities using market insight and private networks.
+          </p>
+          <div class="flow-card-divider"></div>
+          <p class="flow-card-value-label">Key Value</p>
+          <p class="flow-card-value">Access to investment-grade opportunities before value is realized.</p>
+        </article>
+
+        <!-- Connector 1 → 2 -->
+        <div class="flow-connector" aria-hidden="true">
+          <div class="flow-connector-inner">
+            <div class="flow-connector-line" data-connector></div>
+            <div class="flow-connector-arrow"></div>
+          </div>
+        </div>
+
+        <!-- Stage 02 — Renovation -->
+        <article class="flow-card" role="listitem" aria-label="Stage 2: Renovation">
+          <div class="flow-card-number">02</div>
+          <h3 class="flow-card-title">Renovation</h3>
+          <p class="flow-card-desc">
+            Architectural and interior transformation that increases property value through layout improvement,
+            materials, and design integration.
+          </p>
+          <div class="flow-card-divider"></div>
+          <p class="flow-card-value-label">Key Value</p>
+          <p class="flow-card-value">Turning underperforming properties into high-value assets.</p>
+        </article>
+
+        <!-- Connector 2 → 3 -->
+        <div class="flow-connector" aria-hidden="true">
+          <div class="flow-connector-inner">
+            <div class="flow-connector-line" data-connector></div>
+            <div class="flow-connector-arrow"></div>
+          </div>
+        </div>
+
+        <!-- Stage 03 — Resale -->
+        <article class="flow-card" role="listitem" aria-label="Stage 3: Resale">
+          <div class="flow-card-number">03</div>
+          <h3 class="flow-card-title">Resale</h3>
+          <p class="flow-card-desc">
+            Positioning the finished property in the market and connecting it to the right buyers through brokerage
+            networks.
+          </p>
+          <div class="flow-card-divider"></div>
+          <p class="flow-card-value-label">Key Value</p>
+          <p class="flow-card-value">Capturing the full value created through renovation.</p>
+        </article>
+
+      </div><!-- /.investor-flow-track -->
+
+    </section>
+
+
+    <!-- =====================================================================
+         MARKET PERFORMANCE CHART SECTION
+         ===================================================================== -->
+    <section class="investor-chart-section" aria-label="Market performance">
+      <div class="chart-section-inner">
+
+        <div class="section-label text-center inv-reveal">
+          <span class="dot"></span> Market Intelligence
+        </div>
+
+        <h2 class="chart-section-title inv-reveal">
+          Dubai Luxury Property<br>Performance Index
+        </h2>
+
+        <p class="chart-section-sub inv-reveal">
+          Tracking Dubai luxury market appreciation alongside IH Atelier portfolio performance.
+          Data reflects prime residential transactions across Business Bay, Palm Jumeirah &amp; Emirates Hills.
+        </p>
+
+        <div class="chart-card inv-reveal">
+
+          <div class="chart-legend">
+            <div class="legend-item">
+              <div class="legend-swatch legend-swatch--market"></div>
+              <span>Dubai Luxury Index</span>
+            </div>
+            <div class="legend-item">
+              <div class="legend-swatch legend-swatch--iha"></div>
+              <span>IHA Portfolio</span>
+            </div>
+          </div>
+
+          <canvas id="market-chart" class="market-chart-canvas" role="img"
+            aria-label="Animated line chart showing Dubai luxury property index and IHA portfolio performance from 2019 to 2025"></canvas>
+
+          <div class="chart-annotation">
+            <div class="chart-annotation-badge">+171%</div>
+            <div class="chart-annotation-text">IHA portfolio growth since inception (2021–2025)</div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         CLOSING SECTION
+         ===================================================================== -->
+    <section class="investor-closing" aria-label="Closing statement">
+
+      <div class="investor-closing-inner">
+
+        <div class="section-label text-center inv-reveal">
+          <span class="dot"></span> Full Lifecycle Management
+        </div>
+
+        <h2 class="investor-closing-title inv-reveal">
+          A Single Partner From<br>Acquisition to Exit
+        </h2>
+
+        <div class="investor-closing-items inv-reveal" role="list">
+          <div class="investor-closing-item" role="listitem">
+            <div class="closing-item-dot"></div>
+            <span class="closing-item-label">Acquisition</span>
+          </div>
+          <div class="investor-closing-sep" aria-hidden="true"></div>
+          <div class="investor-closing-item" role="listitem">
+            <div class="closing-item-dot"></div>
+            <span class="closing-item-label">Renovation</span>
+          </div>
+          <div class="investor-closing-sep" aria-hidden="true"></div>
+          <div class="investor-closing-item" role="listitem">
+            <div class="closing-item-dot"></div>
+            <span class="closing-item-label">Resale Strategy</span>
+          </div>
+        </div>
+
+        <p class="investor-closing-tagline inv-reveal">
+          IH Atelier manages the full lifecycle of investment — one integrated team maximizing investment value.
+        </p>
+
+        <a href="contact.html" class="investor-closing-cta inv-reveal" data-cursor-invert>
+          Discuss Your Investment
+          <span class="closing-cta-arrow" aria-hidden="true">→</span>
+        </a>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer" data-cursor-invert>
+    <div class="footer-container">
+      <div class="footer-logo">
+        <h1><img src="images/New IHA Logo (Black).png" alt="IH Atelier" class="footer-brand-logo" /></h1>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <p><a href="index.html">Home</a></p>
+          <p><a href="services.html">Services</a></p>
+          <p><a href="projects.html">Projects</a></p>
+          <p><a href="about.html">About</a></p>
+          <p><a href="investor.html">Investor</a></p>
+          <p><a href="contact.html">Contact</a></p>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <p>Interior Design</p>
+          <p>Architecture</p>
+          <p>Contracting</p>
+          <p>Project Management</p>
+        </div>
+        <div class="footer-col">
+          <h4>Location</h4>
+          <p>Bay Square, Business Bay</p>
+          <p>Dubai, UAE</p>
+          <p style="margin-top: 0.5rem;"><a href="mailto:contact@ihgroup.in">contact@ihgroup.in</a></p>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <p><a href="tel:+971526786001" style="color: #fff; font-size: 1rem;">+971 526786001</a></p>
+          <p style="margin-top: 0.5rem; font-size: 0.7rem;">Careers:</p>
+          <p><a href="mailto:career@ihgroup.in" style="color: var(--gold-accent);">career@ihgroup.in</a></p>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-ih-group">A part of <span class="ih-group-brand">IH Group</span></div>
+      <p>IH Atelier &copy; 2026 &nbsp;—&nbsp; All rights reserved</p>
+    </div>
+  </footer>
+
+  <!-- IH Group Watermark -->
+  <div class="ih-group-watermark">
+    <span class="ih-group-text">IH Group</span>
+  </div>
+
+  <!-- Core script — must stay defer, handles loader/nav/cursor/reveal-up -->
+  <script src="script-v2.js" defer></script>
+
+  <!-- Back to Top Button -->
+  <button type="button" class="back-to-top" id="back-to-top" aria-label="Back to top">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M18 15l-6-6-6 6" />
+    </svg>
+  </button>
+
+  <!--
+    INVESTOR PAGE ANIMATIONS
+    ─────────────────────────────────────────────────────────────────────────
+    Runs on window 'load' (after script-v2.js defer has fully executed and
+    GSAP + ScrollTrigger are registered) to avoid any timing conflicts.
+    Uses class 'inv-reveal' — not 'reveal-up' — so script-v2.js never
+    double-animates investor elements.
+  -->
+  <script>
+    window.addEventListener('load', function () {
+
+      /* ── BACK TO TOP ──────────────────────────────────────────────────── */
+      var backToTop = document.getElementById('back-to-top');
+      if (backToTop) {
+        window.addEventListener('scroll', function () {
+          if (window.scrollY > 500) {
+            backToTop.classList.add('visible');
+          } else {
+            backToTop.classList.remove('visible');
+          }
+        }, { passive: true });
+
+        backToTop.addEventListener('click', function () {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      }
+
+      /* ── GSAP ANIMATIONS ──────────────────────────────────────────────── */
+      if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+
+      gsap.registerPlugin(ScrollTrigger);
+
+      /* Generic inv-reveal (section labels, headings, taglines, CTA) */
+      document.querySelectorAll('.inv-reveal').forEach(function (el, i) {
+        gsap.fromTo(el,
+          { opacity: 0, y: 40 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 1.1,
+            ease: 'power3.out',
+            delay: (i % 4) * 0.1,
+            scrollTrigger: {
+              trigger: el,
+              start: 'top 88%',
+              toggleActions: 'play none none none',
+            }
+          }
+        );
+      });
+
+      /* Flow cards — staggered left-to-right entrance */
+      var cards = document.querySelectorAll('.flow-card');
+      cards.forEach(function (card, i) {
+        gsap.fromTo(card,
+          { opacity: 0, y: 50, scale: 0.97 },
+          {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: 1.1,
+            ease: 'power3.out',
+            delay: i * 0.2,
+            scrollTrigger: {
+              trigger: '#flow-track',
+              start: 'top 78%',
+              toggleActions: 'play none none none',
+            }
+          }
+        );
+      });
+
+      /* Connector lines draw in after cards start entering */
+      var connectors = document.querySelectorAll('[data-connector]');
+      ScrollTrigger.create({
+        trigger: '#flow-track',
+        start: 'top 72%',
+        onEnter: function () {
+          connectors.forEach(function (line, i) {
+            setTimeout(function () {
+              line.classList.add('animated');
+            }, 500 + i * 350);
+          });
+        }
+      });
+
+
+      /* === METRIC COUNTERS ============================================ */
+      document.querySelectorAll('.metric-num').forEach(function (el) {
+        var target = parseFloat(el.dataset.count);
+        var prefix = el.dataset.prefix || '';
+        var suffix = el.dataset.suffix || '';
+        var triggered = false;
+        ScrollTrigger.create({
+          trigger: el,
+          start: 'top 88%',
+          onEnter: function () {
+            if (triggered) return;
+            triggered = true;
+            var startTime = null;
+            var duration = 2000;
+            function step(ts) {
+              if (!startTime) startTime = ts;
+              var p = Math.min((ts - startTime) / duration, 1);
+              var eased = 1 - Math.pow(1 - p, 3);
+              el.textContent = prefix + Math.round(eased * target) + suffix;
+              if (p < 1) requestAnimationFrame(step);
+            }
+            requestAnimationFrame(step);
+          }
+        });
+      });
+
+      /* === MARKET PERFORMANCE CHART ==================================== */
+      (function () {
+        var canvas = document.getElementById('market-chart');
+        if (!canvas) return;
+        var dpr = Math.min(window.devicePixelRatio || 1, 2);
+        var IW = 900, IH = 320;
+        canvas.width = IW * dpr;
+        canvas.height = IH * dpr;
+        var ctx = canvas.getContext('2d');
+        ctx.scale(dpr, dpr);
+
+        var ml = 55, mr = 15, mt = 24, mb = 48;
+        var pw = IW - ml - mr;
+        var ph = IH - mt - mb;
+
+        var years = ['2019', '2020', '2021', '2022', '2023', '2024', '2025'];
+        var marketVals = [100, 92, 118, 148, 172, 198, 225];
+        var ihaVals = [null, null, 118, 166, 210, 268, 320];
+        var yMin = 78, yMax = 345;
+
+        function xPos(i) { return ml + (i / (years.length - 1)) * pw; }
+        function yPos(v) { return mt + ph * (1 - (v - yMin) / (yMax - yMin)); }
+
+        var marketPts = years.map(function (_, i) {
+          return { x: xPos(i), y: yPos(marketVals[i]) };
+        });
+        var ihaPts = [];
+        years.forEach(function (_, i) {
+          if (ihaVals[i] !== null) ihaPts.push({ x: xPos(i), y: yPos(ihaVals[i]) });
+        });
+        var ihaStartX = xPos(2);
+
+        function partialPts(pts, progress) {
+          if (!pts.length || progress <= 0) return [];
+          if (progress >= 1) return pts.slice();
+          var totalLen = 0;
+          for (var i = 1; i < pts.length; i++) {
+            var dx = pts[i].x - pts[i - 1].x, dy = pts[i].y - pts[i - 1].y;
+            totalLen += Math.sqrt(dx * dx + dy * dy);
+          }
+          var target = totalLen * progress, walked = 0, result = [pts[0]];
+          for (var j = 1; j < pts.length; j++) {
+            var dx2 = pts[j].x - pts[j - 1].x, dy2 = pts[j].y - pts[j - 1].y;
+            var slen = Math.sqrt(dx2 * dx2 + dy2 * dy2);
+            if (walked + slen <= target) { result.push(pts[j]); walked += slen; }
+            else {
+              var t2 = (target - walked) / slen;
+              result.push({ x: pts[j - 1].x + dx2 * t2, y: pts[j - 1].y + dy2 * t2 });
+              break;
+            }
+          }
+          return result;
+        }
+
+        function drawPolyline(pts) {
+          if (pts.length < 2) return;
+          ctx.beginPath(); ctx.moveTo(pts[0].x, pts[0].y);
+          for (var i = 1; i < pts.length; i++) ctx.lineTo(pts[i].x, pts[i].y);
+          ctx.stroke();
+        }
+
+        function drawFill(pts, r, g, b) {
+          if (pts.length < 2) return;
+          var base = mt + ph, last = pts[pts.length - 1];
+          ctx.save();
+          ctx.beginPath(); ctx.moveTo(pts[0].x, pts[0].y);
+          for (var i = 1; i < pts.length; i++) ctx.lineTo(pts[i].x, pts[i].y);
+          ctx.lineTo(last.x, base); ctx.lineTo(pts[0].x, base); ctx.closePath();
+          var grad = ctx.createLinearGradient(0, mt, 0, base);
+          grad.addColorStop(0, 'rgba(' + r + ',' + g + ',' + b + ',0.13)');
+          grad.addColorStop(1, 'rgba(' + r + ',' + g + ',' + b + ',0)');
+          ctx.fillStyle = grad; ctx.fill(); ctx.restore();
+        }
+
+        function drawGlowDot(pt, r, g, b) {
+          ctx.save();
+          ctx.beginPath(); ctx.arc(pt.x, pt.y, 8, 0, Math.PI * 2);
+          ctx.strokeStyle = 'rgba(' + r + ',' + g + ',' + b + ',0.22)';
+          ctx.lineWidth = 2; ctx.stroke();
+          ctx.beginPath(); ctx.arc(pt.x, pt.y, 3.5, 0, Math.PI * 2);
+          ctx.fillStyle = 'rgba(' + r + ',' + g + ',' + b + ',0.95)'; ctx.fill();
+          ctx.restore();
+        }
+
+        function render(progress) {
+          ctx.clearRect(0, 0, IW, IH);
+
+          /* dashed grid lines */
+          var yTicks = [100, 150, 200, 250, 300];
+          ctx.save();
+          yTicks.forEach(function (v) {
+            var y = yPos(v);
+            ctx.strokeStyle = 'rgba(26,24,20,0.07)';
+            ctx.setLineDash([4, 6]); ctx.lineWidth = 1;
+            ctx.beginPath(); ctx.moveTo(ml, y); ctx.lineTo(ml + pw, y); ctx.stroke();
+            ctx.setLineDash([]);
+            ctx.fillStyle = 'rgba(26,24,20,0.28)';
+            ctx.font = '10px Optima, "Segoe UI", sans-serif';
+            ctx.textAlign = 'right';
+            ctx.fillText(v, ml - 8, y + 3.5);
+          });
+          ctx.setLineDash([]);
+          /* x-axis baseline */
+          ctx.strokeStyle = 'rgba(26,24,20,0.1)'; ctx.lineWidth = 1;
+          ctx.beginPath(); ctx.moveTo(ml, mt + ph); ctx.lineTo(ml + pw, mt + ph); ctx.stroke();
+          /* year labels */
+          ctx.fillStyle = 'rgba(26,24,20,0.28)';
+          ctx.font = '10px Optima, "Segoe UI", sans-serif';
+          ctx.textAlign = 'center';
+          years.forEach(function (y, i) { ctx.fillText(y, xPos(i), IH - mb + 18); });
+          ctx.restore();
+
+          /* market line */
+          var mPts = partialPts(marketPts, progress);
+          drawFill(mPts, 107, 122, 140);
+          ctx.save();
+          ctx.strokeStyle = 'rgba(107,122,140,0.85)'; ctx.lineWidth = 2.5;
+          ctx.lineJoin = 'round'; ctx.lineCap = 'round';
+          drawPolyline(mPts); ctx.restore();
+
+          /* IHA line (delayed start after 25% scroll progress) */
+          var ihaProgress = Math.max(0, (progress - 0.25) / 0.75);
+          var iPts = partialPts(ihaPts, ihaProgress);
+          drawFill(iPts, 138, 117, 96);
+          ctx.save();
+          ctx.strokeStyle = 'rgba(138,117,96,0.9)'; ctx.lineWidth = 2.5;
+          ctx.lineJoin = 'round'; ctx.lineCap = 'round';
+          drawPolyline(iPts); ctx.restore();
+
+          /* animated end-point glow dots */
+          if (mPts.length >= 2 && progress > 0.04) drawGlowDot(mPts[mPts.length - 1], 107, 122, 140);
+          if (iPts.length >= 2 && ihaProgress > 0.04) drawGlowDot(iPts[iPts.length - 1], 138, 117, 96);
+
+          /* inception label */
+          if (ihaProgress > 0.05) {
+            ctx.save();
+            ctx.fillStyle = 'rgba(138,117,96,0.55)';
+            ctx.font = '9px Optima, "Segoe UI", sans-serif';
+            ctx.textAlign = 'center';
+            ctx.fillText('Inception', ihaStartX, yPos(118) - 12);
+            ctx.restore();
+          }
+        }
+
+        render(0);
+
+        var chartObj = { progress: 0 };
+        gsap.to(chartObj, {
+          progress: 1,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: canvas,
+            start: 'top 88%',
+            end: 'bottom 30%',
+            scrub: 1.5,
+            onUpdate: function () { render(chartObj.progress); }
+          }
+        });
+      })();
+      /* Refresh ScrollTrigger after all animations are registered */
+      ScrollTrigger.refresh();
+
+      /* ── CARD TILT (desktop only) ─────────────────────────────────────── */
+      if (window.matchMedia('(hover: hover)').matches) {
+        cards.forEach(function (card) {
+          card.addEventListener('mousemove', function (e) {
+            var rect = card.getBoundingClientRect();
+            var dx = (e.clientX - (rect.left + rect.width / 2)) / (rect.width / 2);
+            var dy = (e.clientY - (rect.top + rect.height / 2)) / (rect.height / 2);
+            card.style.transform = 'translateY(-8px) rotateX(' + (-dy * 4) + 'deg) rotateY(' + (dx * 4) + 'deg)';
+          });
+          card.addEventListener('mouseleave', function () {
+            card.style.transform = '';
+          });
+        });
+      }
+
+    }); // end window.load
+  </script>
+
+</body>
+
+</html>

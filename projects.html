@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="IH Atelier" />
+  <meta name="robots" content="index, follow" />
+  <meta name="description"
+    content="Explore our portfolio of luxury residential and commercial projects across Dubai — each a unique architectural statement crafted by IH Atelier." />
+  <meta name="theme-color" content="#0a0a0a" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://ihatelier.com/projects" />
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg" />
+  <title>Projects | IHA Design & Build</title>
+
+  <!-- Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet" />
+
+  <!-- Fonts -->
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles-v2.css?v=1772480796" />
+  <link rel="canonical" href="https://ihatelier.com/projects" />
+
+  <!-- GSAP + ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <!-- Lenis Smooth Scroll -->
+  <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+</head>
+
+<body class="loading">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <!-- Page Loader -->
+  <div class="page-loader">
+    <div class="loader-content">
+      <img src="images/New IHA Logo (Black).png" alt="IHA" class="loader-logo-img" />
+    </div>
+  </div>
+
+  <!-- Scroll Progress Bar -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursor-follower"></div>
+
+  <!-- Ambient Orbs -->
+  <div class="orb" style="top: 10%; left: 15%; width: 400px; height: 400px;"></div>
+  <div class="orb" style="top: 60%; right: 10%; width: 500px; height: 500px; animation-delay: -2s;"></div>
+
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-logo"><a href="index.html"><img src="images/New IHA Logo (Black).png" alt="IH Atelier"
+          class="nav-logo-img" /></a></div>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="services.html" class="nav-link">Services</a>
+      <a href="projects.html" class="nav-link active">Projects</a>
+      <a href="investor.html" class="nav-link">Investor</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+    </div>
+    <a href="contact.html" class="nav-cta">Begin Your Project</a>
+    <div class="menu-btn" id="menu-btn">
+      <span class="lines"></span>
+      <span class="lines"></span>
+    </div>
+  </nav>
+
+  <!-- Fullscreen Menu Overlay -->
+  <div class="menu-overlay" id="menu-overlay">
+    <button type="button" class="menu-close-btn" id="menu-close-btn" aria-label="Close menu">&times;</button>
+    <ul class="menu-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="investor.html">Investor</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+  </div>
+
+  <!-- Projects Page Hero -->
+  <section class="projects-page-hero" id="home">
+    <div class="projects-hero-bg">
+      <svg class="hero-architecture-drawing" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
+        <!-- Architectural wireframe lines -->
+        <defs>
+          <pattern id="grid-pattern" width="60" height="60" patternUnits="userSpaceOnUse">
+            <path d="M 60 0 L 0 0 0 60" fill="none" stroke="rgba(26, 24, 20, 0.08)" stroke-width="0.5" />
+          </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#grid-pattern)" />
+        <!-- Horizontal lines -->
+        <line x1="100" y1="200" x2="1100" y2="200" stroke="rgba(26, 24, 20, 0.06)" stroke-width="1" />
+        <line x1="150" y1="350" x2="1050" y2="350" stroke="rgba(26, 24, 20, 0.05)" stroke-width="1" />
+        <line x1="100" y1="500" x2="1100" y2="500" stroke="rgba(26, 24, 20, 0.06)" stroke-width="1" />
+        <line x1="200" y1="650" x2="1000" y2="650" stroke="rgba(26, 24, 20, 0.04)" stroke-width="1" />
+        <!-- Vertical lines -->
+        <line x1="300" y1="100" x2="300" y2="700" stroke="rgba(26, 24, 20, 0.05)" stroke-width="1" />
+        <line x1="600" y1="150" x2="600" y2="650" stroke="rgba(26, 24, 20, 0.06)" stroke-width="1" />
+        <line x1="900" y1="100" x2="900" y2="700" stroke="rgba(26, 24, 20, 0.05)" stroke-width="1" />
+        <!-- Building outline -->
+        <rect x="350" y="250" width="500" height="350" fill="none" stroke="rgba(107, 122, 140, 0.1)"
+          stroke-width="1.5" />
+        <rect x="380" y="280" width="100" height="150" fill="none" stroke="rgba(26, 24, 20, 0.08)" stroke-width="1" />
+        <rect x="520" y="280" width="180" height="150" fill="none" stroke="rgba(26, 24, 20, 0.08)" stroke-width="1" />
+        <rect x="750" y="280" width="70" height="150" fill="none" stroke="rgba(26, 24, 20, 0.08)" stroke-width="1" />
+        <line x1="350" y1="450" x2="850" y2="450" stroke="rgba(26, 24, 20, 0.06)" stroke-width="1"
+          stroke-dasharray="8,4" />
+        <!-- Diagonal accents -->
+        <line x1="200" y1="150" x2="400" y2="350" stroke="rgba(26, 24, 20, 0.04)" stroke-width="1" />
+        <line x1="800" y1="350" x2="1000" y2="150" stroke="rgba(26, 24, 20, 0.04)" stroke-width="1" />
+        <!-- Corner marks -->
+        <path d="M 100 100 L 100 150 M 100 100 L 150 100" stroke="rgba(107, 122, 140, 0.15)" stroke-width="2"
+          fill="none" />
+        <path d="M 1100 100 L 1100 150 M 1100 100 L 1050 100" stroke="rgba(107, 122, 140, 0.15)" stroke-width="2"
+          fill="none" />
+        <path d="M 100 700 L 100 650 M 100 700 L 150 700" stroke="rgba(107, 122, 140, 0.15)" stroke-width="2"
+          fill="none" />
+        <path d="M 1100 700 L 1100 650 M 1100 700 L 1050 700" stroke="rgba(107, 122, 140, 0.15)" stroke-width="2"
+          fill="none" />
+        <!-- Circle accent -->
+        <circle cx="600" cy="400" r="80" fill="none" stroke="rgba(107, 122, 140, 0.08)" stroke-width="1" />
+        <circle cx="600" cy="400" r="120" fill="none" stroke="rgba(107, 122, 140, 0.05)" stroke-width="1" />
+      </svg>
+    </div>
+    <div class="projects-hero-left">
+      <h1>Our<br /><em>Works</em></h1>
+      <div class="section-label"><span class="dot"></span> Portfolio</div>
+    </div>
+  </section>
+
+  <!-- Creative Projects Grid -->
+  <section class="creative-projects-section" id="main-content">
+    <div class="projects-grid-creative">
+
+      <!-- Project 1 - Large Featured -->
+      <article class="project-card-creative project-featured tilt3d" data-project-gallery
+        data-project-folder="Golf view villa" data-project-title="Golf view villa" role="button" tabindex="0">
+        <div class="project-card-inner">
+          <div class="project-image-wrapper">
+            <img src="images/project-1.png" alt="Golf view villa" decoding="async" width="800" height="600" />
+            <div class="project-image-overlay"></div>
+          </div>
+          <div class="project-content">
+            <span class="project-number">01</span>
+            <div class="project-category">Interior Design</div>
+            <h2 class="project-title">Golf view<br /><em>villa</em></h2>
+            <div class="project-meta-row">
+              <span class="meta-item">
+                <span class="meta-label">Location</span>
+                <span class="meta-value">Dubai, UAE</span>
+              </span>
+              <span class="meta-item">
+                <span class="meta-label">Year</span>
+                <span class="meta-value">2019</span>
+              </span>
+            </div>
+            <div class="project-tags">
+              <span class="tag">Villa</span>
+              <span class="tag">Luxury</span>
+            </div>
+            <a href="#" class="project-link" data-project-gallery data-project-folder="Golf view villa"
+              data-project-title="Golf view villa" aria-label="View Golf view villa project">
+              <span>View Project</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Project 2 - Standard -->
+      <article class="project-card-creative project-standard tilt3d" data-project-gallery
+        data-project-folder="palatial concept" data-project-title="Palatial Concept" role="button" tabindex="0">
+        <div class="project-card-inner">
+          <div class="project-image-wrapper">
+            <img src="images/project-2.png" alt="Palatial Concept" decoding="async" width="800" height="600" />
+            <div class="project-image-overlay"></div>
+          </div>
+          <div class="project-content">
+            <span class="project-number">02</span>
+            <div class="project-category">Architectural Design</div>
+            <h2 class="project-title">Palatial<br /><em>Concept</em></h2>
+            <div class="project-meta-row">
+              <span class="meta-item">
+                <span class="meta-label">Location</span>
+                <span class="meta-value">Dubai, UAE</span>
+              </span>
+              <span class="meta-item">
+                <span class="meta-label">Year</span>
+                <span class="meta-value">2021</span>
+              </span>
+            </div>
+            <div class="project-tags">
+              <span class="tag">Commercial</span>
+              <span class="tag">Contemporary</span>
+            </div>
+            <a href="#" class="project-link" data-project-gallery data-project-folder="palatial concept"
+              data-project-title="Palatial Concept" aria-label="View Palatial Concept project">
+              <span>View Project</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Project 3 - Standard -->
+      <article class="project-card-creative project-standard tilt3d" data-project-gallery data-project-folder="Skylife"
+        data-project-title="Skylife" role="button" tabindex="0">
+        <div class="project-card-inner">
+          <div class="project-image-wrapper">
+            <img src="images/project-3.png" alt="Skylife" decoding="async" width="800" height="600" />
+            <div class="project-image-overlay"></div>
+          </div>
+          <div class="project-content">
+            <span class="project-number">03</span>
+            <div class="project-category">Interior Design</div>
+            <h2 class="project-title">Skylife</h2>
+            <div class="project-meta-row">
+              <span class="meta-item">
+                <span class="meta-label">Location</span>
+                <span class="meta-value">Dubai, UAE</span>
+              </span>
+              <span class="meta-item">
+                <span class="meta-label">Year</span>
+                <span class="meta-value">2023</span>
+              </span>
+            </div>
+            <div class="project-tags">
+              <span class="tag">Penthouse</span>
+              <span class="tag">Minimalist</span>
+            </div>
+            <a href="#" class="project-link" data-project-gallery data-project-folder="Skylife"
+              data-project-title="Skylife" aria-label="View Skylife project">
+              <span>View Project</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Project 4 - Wide -->
+      <article class="project-card-creative project-wide tilt3d" data-project-gallery data-project-folder="Villa Alpina"
+        data-project-title="Villa Alpina" role="button" tabindex="0">
+        <div class="project-card-inner">
+          <div class="project-image-wrapper">
+            <img src="images/project-4.png" alt="Villa Alpina" decoding="async" />
+            <div class="project-image-overlay"></div>
+          </div>
+          <div class="project-content">
+            <span class="project-number">04</span>
+            <div class="project-category">Full Renovation</div>
+            <h2 class="project-title">Villa<br /><em>Alpina</em></h2>
+            <div class="project-meta-row">
+              <span class="meta-item">
+                <span class="meta-label">Location</span>
+                <span class="meta-value">Dubai, UAE</span>
+              </span>
+              <span class="meta-item">
+                <span class="meta-label">Year</span>
+                <span class="meta-value">2022</span>
+              </span>
+            </div>
+            <div class="project-tags">
+              <span class="tag">Villa</span>
+              <span class="tag">Contemporary</span>
+            </div>
+            <a href="#" class="project-link" data-project-gallery data-project-folder="Villa Alpina"
+              data-project-title="Villa Alpina" aria-label="View Villa Alpina project">
+              <span>View Project</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Project 5 - Standard -->
+      <article class="project-card-creative project-standard tilt3d" data-project-gallery
+        data-project-folder="Azure crest villa" data-project-title="Azure Crest Villa" role="button" tabindex="0">
+        <div class="project-card-inner">
+          <div class="project-image-wrapper">
+            <img src="images/project-5.png" alt="Azure Crest Villa" decoding="async" />
+            <div class="project-image-overlay"></div>
+          </div>
+          <div class="project-content">
+            <span class="project-number">05</span>
+            <div class="project-category">Architecture</div>
+            <h2 class="project-title">Azure Crest<br /><em>Villa</em></h2>
+            <div class="project-meta-row">
+              <span class="meta-item">
+                <span class="meta-label">Location</span>
+                <span class="meta-value">Dubai, UAE</span>
+              </span>
+              <span class="meta-item">
+                <span class="meta-label">Year</span>
+                <span class="meta-value">2024</span>
+              </span>
+            </div>
+            <div class="project-tags">
+              <span class="tag">Villa</span>
+              <span class="tag">Modern</span>
+            </div>
+            <a href="#" class="project-link" data-project-gallery data-project-folder="Azure crest villa"
+              data-project-title="Azure Crest Villa" aria-label="View Azure Crest Villa project">
+              <span>View Project</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- Conclusion Section -->
+  <section class="conclusion-section">
+    <div class="conclusion-content">
+      <div class="section-label"><span class="dot"></span> Begin Your Journey</div>
+      <h2 class="conclusion-title">Let's Create Something<br><em>Extraordinary</em></h2>
+      <p class="conclusion-text">From concept to completion, we transform visions into timeless spaces.</p>
+      <a href="contact.html" class="conclusion-cta"><span>Start Your Project</span></a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer" data-cursor-invert>
+    <div class="footer-container">
+      <div class="footer-logo">
+        <h1><img src="images/New IHA Logo (Black).png" alt="IH Atelier" class="footer-brand-logo" /></h1>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <p><a href="index.html">Home</a></p>
+          <p><a href="services.html">Services</a></p>
+          <p><a href="projects.html">Projects</a></p>
+          <p><a href="about.html">About</a></p>
+          <p><a href="contact.html">Contact</a></p>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <p>Interior Design</p>
+          <p>Architecture</p>
+          <p>Contracting</p>
+          <p>Project Management</p>
+        </div>
+        <div class="footer-col">
+          <h4>Location</h4>
+          <p>Bay Square, Business Bay</p>
+          <p>Dubai, UAE</p>
+          <p style="margin-top: 0.5rem;"><a href="mailto:contact@ihgroup.in">contact@ihgroup.in</a></p>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <p><a href="tel:+971526786001" style="color: #fff; font-size: 1rem;">+971 526786001</a></p>
+          <p style="margin-top: 0.5rem; font-size: 0.7rem;">Careers:</p>
+          <p><a href="mailto:career@ihgroup.in" style="color: var(--gold-accent);">career@ihgroup.in</a></p>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-ih-group">A part of <span class="ih-group-brand">IH Group</span></div>
+      <p>IH Atelier &copy; 2026 &nbsp;—&nbsp; All rights reserved</p>
+    </div>
+  </footer>
+
+  <!-- Project Gallery Modal -->
+  <div id="project-gallery-modal" class="project-gallery-modal" aria-hidden="true">
+    <div id="project-gallery-overlay" class="project-gallery-overlay"></div>
+    <div class="project-gallery-content">
+      <div class="project-gallery-header">
+        <h2 id="project-gallery-title" class="project-gallery-title"></h2>
+        <button type="button" id="project-gallery-close" class="project-gallery-close" aria-label="Close gallery">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M18 6L6 18M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+      <div class="project-gallery-main">
+        <button type="button" id="project-gallery-prev" class="project-gallery-nav project-gallery-prev"
+          aria-label="Previous image">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M15 18l-6-6 6-6" />
+          </svg>
+        </button>
+        <img id="project-gallery-main-img" class="project-gallery-main-img" src="" alt="" />
+        <button type="button" id="project-gallery-next" class="project-gallery-nav project-gallery-next"
+          aria-label="Next image">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M9 18l6-6-6-6" />
+          </svg>
+        </button>
+      </div>
+      <div class="project-gallery-footer">
+        <span id="project-gallery-counter" class="project-gallery-counter"></span>
+        <div id="project-gallery-thumbnails" class="project-gallery-thumbnails"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script-v2.js?v=1772479700" defer></script>
+  <script src="projects-gallery.js" defer></script>
+  <!-- Back to Top Button -->
+  <button type="button" class="back-to-top" id="back-to-top" aria-label="Back to top">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M18 15l-6-6-6 6" />
+    </svg>
+  </button>
+</body>
+
+</html>

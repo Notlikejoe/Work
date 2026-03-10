@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="IH Atelier" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#0a0a0a" />
+  <title>IH Atelier — Design & Build</title>
+  <meta name="description"
+    content="IH Atelier crafts extraordinary living environments — private architectural statements for those who expect more." />
+
+  <!-- Preconnect -->
+
+  <!-- Fonts -->
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles-v2.css?v=1772480796" />
+
+  <!-- Three.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.160.0/three.min.js"></script>
+
+  <!-- GSAP + ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <!-- Lenis Smooth Scroll -->
+  <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+</head>
+
+<body class="loading">
+
+  <!-- Skip to main content (accessibility) -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Page Loader -->
+  <div class="page-loader">
+    <div class="loader-content">
+      <div class="loader-logo">IHA</div>
+      <div class="loader-text-row">
+        <span class="loader-text">Design</span>
+        <div class="loader-line"></div>
+        <span class="loader-text">Build</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Page Transition -->
+  <div class="page-transition"></div>
+
+  <!-- Scroll Progress Bar -->
+
+  <!-- Custom Cursor -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursor-follower"></div>
+
+  <!-- Three.js Hero Canvas -->
+  <canvas id="hero-canvas"></canvas>
+
+  <!-- Ambient Orbs -->
+  <div class="orb" style="top: 15%; right: 10%; width: 500px; height: 500px;"></div>
+  <div class="orb" style="bottom: 5%; left: 5%; width: 700px; height: 700px; animation-delay: -8s;"></div>
+
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-logo"><a href="index.html"><img src="images/IHA Logo (Black).png" alt="IH Atelier"
+          class="nav-logo-img" /></a></div>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link active">Home</a>
+      <a href="services.html" class="nav-link">Services</a>
+      <a href="projects.html" class="nav-link">Projects</a>
+      <a href="investor.html" class="nav-link">Investor</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+    </div>
+    <div class="nav-right">
+      <a href="contact.html" class="nav-cta">Begin Your Project</a>
+      <div class="menu-btn" id="menu-btn">
+        <span class="lines"></span>
+        <span class="lines"></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Fullscreen Menu Overlay -->
+  <div class="menu-overlay" id="menu-overlay">
+    <button type="button" class="menu-close-btn" id="menu-close-btn" aria-label="Close menu">&times;</button>
+    <ul class="menu-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="investor.html">Investor</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <!-- Layer 1: Background -->
+    <div class="hero-parallax-layer" data-depth="0.03">
+      <div class="hero-photo"></div>
+    </div>
+
+    <div class="hero-overlay"></div>
+
+    <!-- Layer 2: Grid -->
+    <div class="hero-parallax-layer" data-depth="0.08">
+      <div class="hero-grid">
+        <div class="hg-line"></div>
+        <div class="hg-line"></div>
+        <div class="hg-line"></div>
+        <div class="hg-line"></div>
+      </div>
+    </div>
+
+    <!-- Layer 3: Brand -->
+    <div class="hero-parallax-layer" data-depth="0.15">
+      <div class="hero-box">
+        <h1 class="hero-brand">IHA</h1>
+        <p class="hero-tagline">DESIGN &amp; BUILD</p>
+      </div>
+    </div>
+
+    <div class="scroll-indicator">
+      <div class="scroll-line"></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- Blueprint Section -->
+  <section class="blueprint-section" id="blueprint-section">
+    <div class="blueprint-left">
+      <div class="section-label reveal-up"><span class="dot"></span> About Us</div>
+      <h2 class="blueprint-heading reveal-up">
+        At IH Atelier,<br>Interiors Are<br>Not Styled —<br><em>They Are<br>Composed.</em>
+      </h2>
+      <p class="blueprint-body reveal-up">
+        We design to engage the senses and ease the mind — crafting environments
+        that restore equilibrium, evoke emotion, and reflect the individuality of
+        those who inhabit them.
+      </p>
+      <p class="blueprint-subtext reveal-up">
+        Every project is a quiet statement of refinement — a balance between
+        science and soul, precision and poetry.
+      </p>
+
+      <div class="blueprint-stats reveal-up">
+        <div class="bp-stat">
+          <span class="bp-num">12</span>
+          <span class="bp-label">Years Experience</span>
+        </div>
+        <div class="bp-stat-divider"></div>
+        <div class="bp-stat">
+          <span class="bp-num">80</span>
+          <span class="bp-label">Projects Done</span>
+        </div>
+        <div class="bp-stat-divider"></div>
+        <div class="bp-stat">
+          <span class="bp-num">100</span>
+          <span class="bp-label">% Satisfaction</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="blueprint-right">
+      <canvas id="about-blueprint-canvas"></canvas>
+      <div class="blueprint-badge">IH Atelier — DESIGN &amp; BUILD</div>
+      <div class="blueprint-grid-overlay"></div>
+    </div>
+  </section>
+
+  <!-- Client Logos Strip -->
+  <div class="client-logos">
+    <h3 class="logo-joyalukkas">Joyalukkas</h3>
+    <h3 class="logo-vanheusen">VanHeusen</h3>
+    <h3 class="logo-dlf">DLF<span class="dlf-arrow">▲</span></h3>
+    <h3 class="logo-cognizant">Cognizant</h3>
+    <h3 class="logo-samsung">Samsung</h3>
+  </div>
+
+  <!-- View & Feel Section -->
+  <section class="view-feel">
+    <div class="image-wrapper architecture-img" id="img-architecture">
+      <img src="images/architecture.png" alt="Modern Villa Exterior" loading="lazy" decoding="async" />
+      <div class="img-overlay"></div>
+    </div>
+    <div class="black-banner">
+      <h2 class="reveal-up">
+        We build the <strong>VIEW</strong> outside<br />We define the <strong>FEEL</strong> inside
+      </h2>
+    </div>
+    <div class="image-wrapper interior-img" id="img-interior">
+      <img src="images/interior.png" alt="Luxurious Living Room Interior" loading="lazy" decoding="async" />
+      <div class="img-overlay"></div>
+    </div>
+  </section>
+
+  <!-- Concept Gallery -->
+  <section class="concept-gallery">
+    <div class="section-label text-center reveal-up"><span class="dot"></span> Gallery</div>
+    <h2 class="section-title text-center reveal-up">Concept Gallery</h2>
+    <div class="gallery-wrapper">
+      <div class="gallery-track" id="gallery-track">
+        <div class="gallery-item">
+          <img src="images/gallery-1.png" alt="Interior Living Space" loading="lazy" decoding="async" />
+        </div>
+        <div class="gallery-item">
+          <img src="images/gallery-new-1.png" alt="Luxury Interior" loading="lazy" decoding="async" />
+        </div>
+        <div class="gallery-item active">
+          <img src="images/gallery-new-2.png" alt="Architectural Exterior" loading="lazy" decoding="async" />
+        </div>
+        <div class="gallery-item">
+          <img src="images/gallery-new-3.png" alt="Stone Villa" loading="lazy" decoding="async" />
+        </div>
+        <div class="gallery-item">
+          <img src="images/gallery-2.png" alt="Gallery 2" loading="lazy" decoding="async" />
+        </div>
+        <!-- Cloned items for seamless loop -->
+        <div class="gallery-item">
+          <img src="images/gallery-1.png" alt="Interior Living Space" loading="lazy" decoding="async" />
+        </div>
+        <div class="gallery-item">
+          <img src="images/gallery-new-1.png" alt="Luxury Interior" loading="lazy" decoding="async" />
+        </div>
+        <div class="gallery-item">
+          <img src="images/gallery-new-2.png" alt="Architectural Exterior" loading="lazy" decoding="async" />
+        </div>
+        <div class="gallery-item">
+          <img src="images/gallery-new-3.png" alt="Stone Villa" loading="lazy" decoding="async" />
+        </div>
+        <div class="gallery-item">
+          <img src="images/gallery-2.png" alt="Gallery 2" loading="lazy" decoding="async" />
+        </div>
+      </div>
+    </div>
+    <div class="gallery-controls">
+      <button type="button" class="explore-btn">Explore More</button>
+      <div class="gallery-nav">
+        <button type="button" class="nav-arrow" id="gallery-prev" aria-label="Previous">←</button>
+        <button type="button" class="nav-arrow" id="gallery-next" aria-label="Next">→</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Projects Section -->
+  <section class="projects" id="projects">
+    <div class="projects-header">
+      <h2 class="huge-title reveal-up">Our Projects:</h2>
+      <div class="projects-nav">
+        <button type="button" class="nav-arrow-light" id="proj-prev" aria-label="Previous">←</button>
+        <span>Browse</span>
+        <button type="button" class="nav-arrow-light" id="proj-next" aria-label="Next">→</button>
+      </div>
+    </div>
+    <!-- Projects Infinite Carousel -->
+    <div class="projects-carousel-viewport">
+      <div class="projects-carousel-track" id="projects-carousel-track">
+
+        <!-- Clone: last card (Airy Cave) -->
+        <div class="project-card carousel-card tilt-card" aria-hidden="true">
+          <div class="card-img-wrapper">
+            <img src="images/project-3.png" alt="Airy Cave" loading="lazy" decoding="async" />
+            <div class="card-logo">IHA</div>
+            <div class="card-overlay"></div>
+          </div>
+          <div class="card-info">
+            <h3>Airy Cave</h3>
+            <div class="card-noir-line"></div>
+            <p>Amsterdam, Netherlands &nbsp;·&nbsp; 2023</p>
+          </div>
+        </div>
+
+        <!-- Real card 1: Sweden Melody -->
+        <div class="project-card carousel-card tilt-card">
+          <div class="card-img-wrapper">
+            <img src="images/project-1.png" alt="Sweden Melody" loading="lazy" decoding="async" />
+            <div class="card-logo">IHA</div>
+            <div class="card-overlay"></div>
+          </div>
+          <div class="card-info">
+            <h3>Sweden Melody</h3>
+            <div class="card-noir-line"></div>
+            <p>Paris, France &nbsp;·&nbsp; 2019</p>
+          </div>
+        </div>
+
+        <!-- Real card 2: Modern Mix -->
+        <div class="project-card carousel-card tilt-card">
+          <div class="card-img-wrapper">
+            <img src="images/project-2.png" alt="Modern Mix" loading="lazy" decoding="async" />
+            <div class="card-logo">IHA</div>
+            <div class="card-overlay"></div>
+          </div>
+          <div class="card-info">
+            <h3>Modern Mix</h3>
+            <div class="card-noir-line"></div>
+            <p>Madrid, Spain &nbsp;·&nbsp; 2021</p>
+          </div>
+        </div>
+
+        <!-- Real card 3: Airy Cave -->
+        <div class="project-card carousel-card tilt-card">
+          <div class="card-img-wrapper">
+            <img src="images/project-3.png" alt="Airy Cave" loading="lazy" decoding="async" />
+            <div class="card-logo">IHA</div>
+            <div class="card-overlay"></div>
+          </div>
+          <div class="card-info">
+            <h3>Airy Cave</h3>
+            <div class="card-noir-line"></div>
+            <p>Amsterdam, Netherlands &nbsp;·&nbsp; 2023</p>
+          </div>
+        </div>
+
+        <!-- Clone: first card (Sweden Melody) -->
+        <div class="project-card carousel-card tilt-card" aria-hidden="true">
+          <div class="card-img-wrapper">
+            <img src="images/project-1.png" alt="Sweden Melody" loading="lazy" decoding="async" />
+            <div class="card-logo">IHA</div>
+            <div class="card-overlay"></div>
+          </div>
+          <div class="card-info">
+            <h3>Sweden Melody</h3>
+            <div class="card-noir-line"></div>
+            <p>Paris, France &nbsp;·&nbsp; 2019</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="all-projects-link reveal-up">
+      <a href="projects.html">All Projects &rarr;</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer" data-cursor-invert>
+    <div class="footer-container">
+      <div class="footer-logo">
+        <h1>IHA</h1>
+        <p>Design &amp; Build</p>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Location</h4>
+          <p>Bay Square, Business Bay, Dubai</p>
+          <br />
+          <h4>Email</h4>
+          <p>contact@ihgroup.in</p>
+        </div>
+        <div class="footer-col right-align">
+          <h4>Call for Works</h4>
+          <p><a href="tel:+971526786001" style="color: inherit; text-decoration: none;">+971 526786001</a></p>
+          <br />
+          <p>To join our team, kindly drop<br />your resume at<br /><strong>career@ihgroup.in</strong></p>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-ih-group">A part of <span class="ih-group-brand">IH Group</span></div>
+      <p>IH Atelier &copy; 2026 &nbsp;—&nbsp; All rights reserved</p>
+    </div>
+  </footer>
+
+  <script src="script-v2.js?v=1772479700" defer></script>
+  <!-- Back to Top Button -->
+  <button type="button" class="back-to-top" id="back-to-top" aria-label="Back to top">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M18 15l-6-6-6 6" />
+    </svg>
+  </button>
+</body>
+
+</html>

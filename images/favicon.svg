@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <defs>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#d4a853"/>
+      <stop offset="50%" style="stop-color:#b8924a"/>
+      <stop offset="100%" style="stop-color:#9a7a3a"/>
+    </linearGradient>
+  </defs>
+  <!-- Background -->
+  <rect width="32" height="32" rx="4" fill="#0a0a0a"/>
+  
+  <!-- I Letter - vertical bar -->
+  <rect x="6" y="8" width="3" height="16" fill="url(#gold)"/>
+  <rect x="5" y="8" width="5" height="2" fill="url(#gold)"/>
+  <rect x="5" y="22" width="5" height="2" fill="url(#gold)"/>
+  
+  <!-- H Letter -->
+  <rect x="13" y="8" width="3" height="16" fill="url(#gold)"/>
+  <rect x="20" y="8" width="3" height="16" fill="url(#gold)"/>
+  <rect x="13" y="14" width="10" height="2" fill="url(#gold)"/>
+  
+  <!-- A Letter - triangle -->
+  <polygon points="26.5,24 23,8 26,8 29.5,24" fill="url(#gold)"/>
+  <rect x="23.5" y="18" width="5" height="2" fill="url(#gold)"/>
+</svg>

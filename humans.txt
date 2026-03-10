@@ -1,0 +1,12 @@
+/* TEAM */
+IH Atelier
+Location: Dubai, UAE
+Contact: contact@ihgroup.in
+
+/* THANKS */
+Built with passion for design and architecture.
+
+/* SITE */
+Last updated: 2026-02-27
+Standards: HTML5, CSS3, JavaScript
+Components: GSAP, Three.js, Lenis

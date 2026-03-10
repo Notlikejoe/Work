@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="IH Atelier" />
+  <meta name="robots" content="index, follow" />
+  <meta name="description"
+    content="Discover the story behind IH Atelier — our passion for architecture, design philosophy, and commitment to crafting extraordinary spaces in Dubai." />
+  <meta name="theme-color" content="#0a0a0a" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://ihatelier.com/about" />
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg" />
+  <title>About Us | IHA Design & Build</title>
+
+  <!-- Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet" />
+
+  <!-- Fonts -->
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles-v2.css?v=1772480796" />
+  <link rel="canonical" href="https://ihatelier.com/about" />
+
+  <!-- Three.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.160.0/three.min.js"></script>
+
+  <!-- GSAP + ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <!-- Lenis Smooth Scroll -->
+  <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+</head>
+
+<body class="loading">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <!-- Page Loader -->
+  <div class="page-loader">
+    <div class="loader-content">
+      <img src="images/New IHA Logo (Black).png" alt="IHA" class="loader-logo-img" />
+    </div>
+  </div>
+
+  <!-- Scroll Progress Bar -->
+  <!-- Custom Cursor -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursor-follower"></div>
+
+  <!-- Three.js Ambient Scene -->
+  <div id="three-canvas-container"></div>
+
+  <!-- Ambient Orbs -->
+  <div class="orb" style="top: 10%; left: 15%; width: 400px; height: 400px;"></div>
+  <div class="orb" style="top: 60%; right: 10%; width: 500px; height: 500px; animation-delay: -2s;"></div>
+
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-logo"><a href="index.html"><img src="images/New IHA Logo (Black).png" alt="IH Atelier"
+          class="nav-logo-img" /></a></div>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="services.html" class="nav-link">Services</a>
+      <a href="projects.html" class="nav-link">Projects</a>
+      <a href="investor.html" class="nav-link">Investor</a>
+      <a href="about.html" class="nav-link active">About</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+    </div>
+    <a href="contact.html" class="nav-cta">Begin Your Project</a>
+    <div class="menu-btn" id="menu-btn">
+      <span class="lines"></span>
+      <span class="lines"></span>
+    </div>
+  </nav>
+
+  <!-- Fullscreen Menu Overlay -->
+  <div class="menu-overlay" id="menu-overlay">
+    <button type="button" class="menu-close-btn" id="menu-close-btn" aria-label="Close menu">&times;</button>
+    <ul class="menu-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="investor.html">Investor</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+  </div>
+
+  <!-- About Hero Section -->
+  <section class="about-hero">
+    <div class="about-hero-bg"></div>
+    <div class="about-hero-content">
+      <p class="page-hero-sub">Architecture &amp; Character</p>
+      <h1 class="about-hero-title">About <span class="ih-atelier-nowrap">IH Atelier</span></h1>
+    </div>
+  </section>
+
+  <!-- Profile Section — Editorial Redesign -->
+  <section class="about-editorial">
+
+    <!-- Centered content -->
+    <div class="about-quote-col">
+      <div class="section-label reveal-up"><span class="dot"></span> About Us</div>
+      <h2 class="about-pull-quote reveal-up">
+        Interiors Are Not Styled —<br><em>They Are Composed.</em>
+      </h2>
+      <div class="about-body-copy reveal-up">
+        <p>Each space is a dialogue between form, light, and material, guided by the principles of neuroarchitecture
+          and biophilic design.</p>
+        <p>We design to engage the senses and ease the mind — crafting environments that restore equilibrium, evoke
+          emotion, and reflect the individuality of those who inhabit them.</p>
+        <p class="about-body-italic">Every project is a quiet statement of refinement — a balance between science and
+          soul, precision and poetry.</p>
+      </div>
+      <!-- MD Quote - Above Name -->
+      <blockquote class="about-founder-quote reveal-up">
+        "We think in decades, not quarters. Growth is built on discipline, clarity, trust, and values aligned with
+        ambition."
+      </blockquote>
+      <div class="about-founder-tag reveal-up">
+        <span class="about-founder-name">Inamul Hasan</span>
+        <span class="about-founder-role">Founder &amp; Architect</span>
+      </div>
+
+      <!-- Founder Image -->
+      <div class="about-founder-image reveal-up">
+        <img src="images/profile.jpeg?v=20260302-2116" alt="Inamul Hasan — Founder & Architect, IH Atelier" />
+      </div>
+
+      <!-- Stats band -->
+      <div class="about-stats-band">
+        <div class="about-stat">
+          <span class="about-stat-num">12+</span>
+          <span class="about-stat-label">Years Experience</span>
+        </div>
+        <div class="about-stat-divider"></div>
+        <div class="about-stat">
+          <span class="about-stat-num">80+</span>
+          <span class="about-stat-label">Projects Done</span>
+        </div>
+        <div class="about-stat-divider"></div>
+        <div class="about-stat">
+          <span class="about-stat-num">100%</span>
+          <span class="about-stat-label">Client Satisfaction</span>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- Values & Philosophy Section -->
+  <section class="values-section">
+    <div class="values-header">
+      <div class="section-label"><span class="dot"></span> Values & Philosophy</div>
+      <h2 class="values-title">Where beyond the<br>extraordinary is the norm</h2>
+    </div>
+    <div class="values-grid">
+      <!-- 3D Value Card 1 -->
+      <div class="value-card tilt3d reveal-3d">
+        <div class="tilt-3d-inner">
+          <div class="tilt-3d-float">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--gold-accent)" stroke-width="1">
+              <circle cx="12" cy="12" r="10"></circle>
+            </svg>
+          </div>
+          <div class="value-icon">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#666" stroke-width="1.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 20h9"></path>
+              <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+            </svg>
+          </div>
+          <h3>We defy the norms</h3>
+          <p>At our core, we challenge conventional thinking and break free from traditional design and build processes.
+            We thrive on pushing the limits of creativity and innovation, delivering results that are unexpected,
+            unique, and groundbreaking.</p>
+        </div>
+      </div>
+
+      <!-- 3D Value Card 2 -->
+      <div class="value-card tilt3d reveal-3d">
+        <div class="tilt-3d-inner">
+          <div class="tilt-3d-float">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--gold-accent)" stroke-width="1">
+              <rect x="3" y="3" width="18" height="18" rx="2"></rect>
+            </svg>
+          </div>
+          <div class="value-icon">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#666" stroke-width="1.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="3" y1="9" x2="21" y2="9"></line>
+              <line x1="9" y1="21" x2="9" y2="9"></line>
+            </svg>
+          </div>
+          <h3>We do the impossible</h3>
+          <p>To us, impossible means an opportunity to redefine what's possible. From intricate designs to
+            unconventional builds, we take on the challenges others shy away from, turning them into extraordinary
+            realities.</p>
+        </div>
+      </div>
+
+      <!-- 3D Value Card 3 -->
+      <div class="value-card tilt3d reveal-3d">
+        <div class="tilt-3d-inner">
+          <div class="tilt-3d-float">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--gold-accent)" stroke-width="1">
+              <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+              <path d="M2 17l10 5 10-5"></path>
+              <path d="M2 12l10 5 10-5"></path>
+            </svg>
+          </div>
+          <div class="value-icon">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#666" stroke-width="1.5"
+              stroke-linecap="round" stroke-linejoin="round">
+              <rect x="4" y="10" width="16" height="10"></rect>
+              <polygon points="12 2 4 10 20 10 12 2"></polygon>
+              <line x1="8" y1="10" x2="8" y2="20"></line>
+              <line x1="16" y1="10" x2="16" y2="20"></line>
+            </svg>
+          </div>
+          <h3>We set the benchmark</h3>
+          <p>We don't just meet industry standards — we set them. Our commitment to excellence drives us to create
+            designs and builds that not only exceed expectations but redefine what's possible.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Work with us button -->
+    <div class="values-footer-btn">
+      <a href="contact.html" class="work-with-us-btn">
+        <span class="btn-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </span>
+        <span class="btn-text">Work with us</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- Cater To Section -->
+  <section class="cater-section">
+    <div class="cater-header">
+      <div class="section-label text-center"><span class="dot"></span> Our Clients</div>
+      <h2 class="huge-title">We Cater To</h2>
+    </div>
+
+    <div class="cater-grid">
+      <!-- Home Owners -->
+      <div class="cater-card" data-aos="fade-up">
+        <div class="cater-card-inner tilt3d">
+          <div class="cater-icon-3d">
+            <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+              <polyline points="9 22 9 12 15 12 15 22"></polyline>
+              <path d="M12 2v4"></path>
+            </svg>
+          </div>
+          <div class="cater-content">
+            <h3>Home Owners</h3>
+            <p>Custom-designed residences tailored to your lifestyle, from concept to completion.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Businesses -->
+      <div class="cater-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="cater-card-inner tilt3d">
+          <div class="cater-icon-3d">
+            <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect>
+              <path d="M9 22v-4h6v4"></path>
+              <path d="M8 6h.01"></path>
+              <path d="M16 6h.01"></path>
+              <path d="M12 6h.01"></path>
+              <path d="M12 10h.01"></path>
+              <path d="M12 14h.01"></path>
+              <path d="M16 10h.01"></path>
+              <path d="M16 14h.01"></path>
+              <path d="M8 10h.01"></path>
+              <path d="M8 14h.01"></path>
+            </svg>
+          </div>
+          <div class="cater-content">
+            <h3>Businesses</h3>
+            <p>Commercial spaces that inspire creativity, enhance productivity, and reflect your brand identity.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Realtors -->
+      <div class="cater-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="cater-card-inner tilt3d">
+          <div class="cater-icon-3d">
+            <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"></path>
+              <path d="M12 18V6"></path>
+              <path d="M8 12h8"></path>
+            </svg>
+          </div>
+          <div class="cater-content">
+            <h3>Realtors</h3>
+            <p>Property staging and design consultation that elevates market appeal and accelerates sales.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Property Traders -->
+      <div class="cater-card" data-aos="fade-up" data-aos-delay="300">
+        <div class="cater-card-inner tilt3d">
+          <div class="cater-icon-3d">
+            <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+              <polyline points="17 6 23 6 23 12"></polyline>
+              <circle cx="6" cy="6" r="2"></circle>
+              <circle cx="18" cy="18" r="2"></circle>
+            </svg>
+          </div>
+          <div class="cater-content">
+            <h3>Property Traders</h3>
+            <p>Value-add renovations for maximum ROI, designed to attract premium buyers and tenants.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Conclusion Section -->
+  <section class="conclusion-section">
+    <div class="conclusion-content">
+      <div class="section-label"><span class="dot"></span> Begin Your Journey</div>
+      <h2 class="conclusion-title">Let's Create Something<br><em>Extraordinary</em></h2>
+      <p class="conclusion-text">From concept to completion, we transform visions into timeless spaces.</p>
+      <a href="contact.html" class="conclusion-cta"><span>Start Your Project</span></a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer" data-cursor-invert>
+    <div class="footer-container">
+      <div class="footer-logo">
+        <h1><img src="images/New IHA Logo (Black).png" alt="IH Atelier" class="footer-brand-logo" /></h1>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <p><a href="index.html">Home</a></p>
+          <p><a href="services.html">Services</a></p>
+          <p><a href="projects.html">Projects</a></p>
+          <p><a href="about.html">About</a></p>
+          <p><a href="contact.html">Contact</a></p>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <p>Interior Design</p>
+          <p>Architecture</p>
+          <p>Contracting</p>
+          <p>Project Management</p>
+        </div>
+        <div class="footer-col">
+          <h4>Location</h4>
+          <p>Bay Square, Business Bay</p>
+          <p>Dubai, UAE</p>
+          <p style="margin-top: 0.5rem;"><a href="mailto:contact@ihgroup.in">contact@ihgroup.in</a></p>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <p><a href="tel:+971526786001" style="color: #fff; font-size: 1rem;">+971 526786001</a></p>
+          <p style="margin-top: 0.5rem; font-size: 0.7rem;">Careers:</p>
+          <p><a href="mailto:career@ihgroup.in" style="color: var(--gold-accent);">career@ihgroup.in</a></p>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-ih-group">A part of <span class="ih-group-brand">IH Group</span></div>
+      <p>IH Atelier &copy; 2026 &nbsp;—&nbsp; All rights reserved</p>
+    </div>
+  </footer>
+
+  <!-- IH Group - Subtle Watermark -->
+  <div class="ih-group-watermark">
+    <span class="ih-group-text">IH Group</span>
+  </div>
+
+  <script src="script.js?v=1772479700"></script>
+  <!-- Back to Top Button -->
+  <button type="button" class="back-to-top" id="back-to-top" aria-label="Back to top">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M18 15l-6-6-6 6" />
+    </svg>
+  </button>
+</body>
+
+</html>

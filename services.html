@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="author" content="IH Atelier" />
+  <meta name="robots" content="index, follow" />
+  <meta name="description"
+    content="IH Atelier offers comprehensive design and build services — from architectural design to interior styling and complete renovation solutions in Dubai." />
+  <meta name="theme-color" content="#0a0a0a" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://ihatelier.com/services" />
+  <link rel="icon" type="image/svg+xml" href="images/favicon.svg" />
+  <title>Services | IHA Design & Build</title>
+
+  <!-- Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet" />
+
+  <!-- Fonts -->
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles-v2.css?v=1772735206" />
+  <link rel="canonical" href="https://ihatelier.com/services" />
+
+  <!-- Three.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.160.0/three.min.js"></script>
+
+  <!-- GSAP + ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <!-- Lenis Smooth Scroll -->
+  <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+</head>
+
+<body class="loading">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  <!-- Page Loader -->
+  <div class="page-loader">
+    <div class="loader-content">
+      <img src="images/New IHA Logo (Black).png" alt="IHA" class="loader-logo-img" />
+    </div>
+  </div>
+
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-follower" id="cursor-follower"></div>
+
+  <!-- Ambient Orbs -->
+  <div class="orb" style="top: 10%; left: 15%; width: 400px; height: 400px;"></div>
+  <div class="orb" style="top: 60%; right: 10%; width: 500px; height: 500px; animation-delay: -2s;"></div>
+
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-logo"><a href="index.html"><img src="images/New IHA Logo (Black).png" alt="IH Atelier"
+          class="nav-logo-img" /></a></div>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="services.html" class="nav-link active">Services</a>
+      <a href="projects.html" class="nav-link">Projects</a>
+      <a href="investor.html" class="nav-link">Investor</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+    </div>
+    <a href="contact.html" class="nav-cta">Begin Your Project</a>
+    <div class="menu-btn" id="menu-btn">
+      <span class="lines"></span>
+      <span class="lines"></span>
+    </div>
+  </nav>
+
+  <!-- Fullscreen Menu Overlay -->
+  <div class="menu-overlay" id="menu-overlay">
+    <button type="button" class="menu-close-btn" id="menu-close-btn" aria-label="Close menu">&times;</button>
+    <ul class="menu-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="investor.html">Investor</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+  </div>
+
+  <!-- Global 3D Ambient Layer -->
+  <canvas id="services-3d-canvas" class="services-3d-canvas"></canvas>
+
+  <!-- Services Section -->
+  <section class="services" id="services">
+    <div class="wireframe-bg flip"></div>
+    <div class="services-intro">
+      <div class="section-label text-center">
+        <span class="dot"></span> Services
+      </div>
+      <h2 class="services-heading">Setting the Highest<br />Benchmark</h2>
+      <p class="services-desc">
+        Our commitment to quality and perfection has earned us a distinguished
+        reputation in the industry, encapsulated in what is now known as 'The
+        IH Atelier Experience.' View our projects to discover why IH Atelier has
+        become synonymous with perfection and excellence.
+      </p>
+    </div>
+
+    <!-- Two Column Services Layout -->
+    <div class="services-two-columns">
+      <!-- Design Column -->
+      <div class="services-column services-column--design">
+        <div class="column-header">
+          <span class="column-label">01</span>
+          <h3 class="column-title">Design</h3>
+          <p class="column-subtitle">Vision & Creation</p>
+        </div>
+
+        <div class="services-list">
+          <div class="service-card-3d tilt3d service-card--champagne" data-service="interior">
+            <div class="service-card-bg"></div>
+            <div class="service-card-content">
+              <div class="service-image-wrap">
+                <img src="images/service-1.png" alt="Interior Design">
+              </div>
+              <div class="service-card-text">
+                <h4>Interior Design</h4>
+                <p>Crafting spaces that reflect your personality and lifestyle through thoughtful design.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="service-card-3d tilt3d service-card--cool-grey" data-service="architecture">
+            <div class="service-card-bg"></div>
+            <div class="service-card-content">
+              <div class="service-image-wrap">
+                <img src="images/service-4.png" alt="Architectural Design">
+              </div>
+              <div class="service-card-text">
+                <h4>Architectural Design</h4>
+                <p>Comprehensive architectural solutions from concept to detailed drawings.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="service-card-3d tilt3d service-card--silver" data-service="landscape">
+            <div class="service-card-bg"></div>
+            <div class="service-card-content">
+              <div class="service-image-wrap">
+                <img src="images/service-landscape.png" alt="Landscape Design">
+              </div>
+              <div class="service-card-text">
+                <h4>Landscape Design</h4>
+                <p>Transforming outdoor spaces into harmonious extensions of your built environment.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Center Divider -->
+      <div class="services-divider">
+        <div class="divider-line"></div>
+      </div>
+
+      <!-- Build Column -->
+      <div class="services-column services-column--build">
+        <div class="column-header">
+          <span class="column-label">02</span>
+          <h3 class="column-title">Build</h3>
+          <p class="column-subtitle">Execution & Delivery</p>
+        </div>
+
+        <div class="services-list">
+          <div class="service-card-3d tilt3d service-card--light-gold" data-service="contracting">
+            <div class="service-card-bg"></div>
+            <div class="service-card-content">
+              <div class="service-image-wrap">
+                <img src="images/service-2.png" alt="Contracting & Construction">
+              </div>
+              <div class="service-card-text">
+                <h4>Contracting & Construction</h4>
+                <p>Full-service construction management with quality craftsmanship.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="service-card-3d tilt3d service-card--champagne" data-service="project-management">
+            <div class="service-card-bg"></div>
+            <div class="service-card-content">
+              <div class="service-image-wrap">
+                <img src="images/service-3.png" alt="Project Management">
+              </div>
+              <div class="service-card-text">
+                <h4>Project Management</h4>
+                <p>End-to-end project coordination ensuring timely and budget-conscious delivery.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="service-card-3d tilt3d service-card--cool-grey" data-service="approvals">
+            <div class="service-card-bg"></div>
+            <div class="service-card-content">
+              <div class="service-image-wrap">
+                <img src="images/service-5.png" alt="Authority Approvals">
+              </div>
+              <div class="service-card-text">
+                <h4>Authority Approvals</h4>
+                <p>Navigating regulatory requirements and securing necessary permits.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Typologies Section -->
+  <section class="typologies" id="typologies">
+    <div class="typologies-3d-bg" id="typologies-3d-bg"></div>
+
+    <!-- Section label -->
+    <div class="typo-section-label">
+      <span class="dot"></span> Typologies
+    </div>
+    <h2 class="typo-main-title">What We Build</h2>
+
+    <!-- Editorial Rows -->
+    <div class="typo-rows-container">
+
+      <!-- Row 1: Commercial -->
+      <div class="typo-row typo-row--right reveal-up">
+        <div class="typo-row-text">
+          <span class="typo-row-index">01</span>
+          <h3 class="typo-row-name">Commercial</h3>
+          <p class="typo-row-desc">Sophisticated commercial interiors crafted to reflect brand identity while maximizing
+            spatial efficiency and impact.</p>
+        </div>
+        <div class="typo-row-divider"></div>
+        <div class="typo-row-icon typo-card-3d tilt3d">
+          <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"
+            stroke-linecap="round" stroke-linejoin="round" class="typo-icon-3d">
+            <path d="M6 22V5l6-3 6 3v17"></path>
+            <path d="M6 12h12"></path>
+            <path d="M6 17h12"></path>
+            <path d="M6 7h12"></path>
+          </svg>
+
+        </div>
+      </div>
+
+      <!-- Row 2: Residential -->
+      <div class="typo-row typo-row--left reveal-up">
+        <div class="typo-row-icon typo-card-3d tilt3d">
+          <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"
+            stroke-linecap="round" stroke-linejoin="round" class="typo-icon-3d">
+            <rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect>
+            <path d="M9 22v-4h6v4"></path>
+            <path d="M8 6h.01"></path>
+            <path d="M16 6h.01"></path>
+            <path d="M12 6h.01"></path>
+            <path d="M12 10h.01"></path>
+            <path d="M12 14h.01"></path>
+            <path d="M16 10h.01"></path>
+            <path d="M16 14h.01"></path>
+            <path d="M8 10h.01"></path>
+            <path d="M8 14h.01"></path>
+          </svg>
+
+        </div>
+        <div class="typo-row-divider"></div>
+        <div class="typo-row-text">
+          <span class="typo-row-index">02</span>
+          <h3 class="typo-row-name">Residential</h3>
+          <p class="typo-row-desc">End-to-end residential design and build solutions crafted to deliver comfort,
+            functionality, and lasting value.</p>
+        </div>
+      </div>
+
+      <!-- Row 3: Landscape -->
+      <div class="typo-row typo-row--right reveal-up">
+        <div class="typo-row-text">
+          <span class="typo-row-index">03</span>
+          <h3 class="typo-row-name">Landscape</h3>
+          <p class="typo-row-desc">Comprehensive landscape design and build solutions that harmonize architecture,
+            nature, and functionality.</p>
+        </div>
+        <div class="typo-row-divider"></div>
+        <div class="typo-row-icon typo-card-3d tilt3d">
+          <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"
+            stroke-linecap="round" stroke-linejoin="round" class="typo-icon-3d">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+
+        </div>
+      </div>
+
+      <!-- Row 4: Hospitality -->
+      <div class="typo-row typo-row--left reveal-up">
+        <div class="typo-row-icon typo-card-3d tilt3d">
+          <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"
+            stroke-linecap="round" stroke-linejoin="round" class="typo-icon-3d">
+            <path d="M3 21h18"></path>
+            <path d="M5 21V7l7-4 7 4v14"></path>
+            <path d="M9 21v-6h6v6"></path>
+            <path d="M10 10h.01"></path>
+            <path d="M14 10h.01"></path>
+          </svg>
+
+        </div>
+        <div class="typo-row-divider"></div>
+        <div class="typo-row-text">
+          <span class="typo-row-index">04</span>
+          <h3 class="typo-row-name">Hospitality</h3>
+          <p class="typo-row-desc">Immersive hospitality environments designed with intent and delivered through
+            seamless turnkey execution.</p>
+        </div>
+      </div>
+
+      <!-- Row 5: Mixed-Use -->
+      <div class="typo-row typo-row--right reveal-up">
+        <div class="typo-row-text">
+          <span class="typo-row-index">05</span>
+          <h3 class="typo-row-name">Mixed-Use</h3>
+          <p class="typo-row-desc">Complex mixed-use projects delivered through a coordinated design-build framework,
+            ensuring functional synergy and long-term value.</p>
+        </div>
+        <div class="typo-row-divider"></div>
+        <div class="typo-row-icon typo-card-3d tilt3d">
+          <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"
+            stroke-linecap="round" stroke-linejoin="round" class="typo-icon-3d">
+            <rect x="2" y="7" width="6" height="14" rx="1"></rect>
+            <rect x="10" y="3" width="6" height="18" rx="1"></rect>
+            <rect x="18" y="10" width="4" height="11" rx="1"></rect>
+            <line x1="5" y1="11" x2="5" y2="11.01"></line>
+            <line x1="5" y1="14" x2="5" y2="14.01"></line>
+            <line x1="5" y1="17" x2="5" y2="17.01"></line>
+            <line x1="13" y1="7" x2="13" y2="7.01"></line>
+            <line x1="13" y1="11" x2="13" y2="11.01"></line>
+            <line x1="13" y1="15" x2="13" y2="15.01"></line>
+          </svg>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Our Process Section -->
+  <section class="our-process" id="process">
+    <div class="process-header">
+      <div class="section-label text-center"><span class="dot"></span> Our Process</div>
+      <h2 class="process-main-title">How We Work</h2>
+      <p class="process-subtitle">A refined methodology — from first sketch to final handover — built on precision,
+        trust, and craft.</p>
+    </div>
+
+    <!-- Vertical Timeline -->
+    <div class="process-timeline-wrap">
+      <!-- Gold vertical thread -->
+      <div class="process-vline" id="process-vline"></div>
+
+      <!-- Step 1: Design -->
+      <div class="process-timeline-step reveal-up" data-step="01">
+        <div class="process-timeline-node">
+          <div class="process-node-ring"></div>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16c0 1.1.9 2 2 2h12a2 2 0 0 0 2-2V8l-6-6z"></path>
+            <path d="M14 3v5h5M16 13H8M16 17H8M10 9H8"></path>
+          </svg>
+        </div>
+        <div class="process-timeline-content tilt3d process-timeline-content--left">
+          <div class="process-bg-num">01</div>
+          <div class="process-step-icon-lg process-glass-panel">
+            <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16c0 1.1.9 2 2 2h12a2 2 0 0 0 2-2V8l-6-6z"></path>
+              <path d="M14 3v5h5M16 13H8M16 17H8M10 9H8"></path>
+            </svg>
+          </div>
+          <div class="process-step-body">
+            <span class="process-step-num-label">01</span>
+            <h4 class="process-step-name">Design</h4>
+            <p class="process-step-desc">Visionary concepts translated into precise, buildable plans. Every space begins
+              as an idea, refined through rigorous design thinking and deep client collaboration.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 2: Execute -->
+      <div class="process-timeline-step reveal-up" data-step="02">
+        <div class="process-timeline-node">
+          <div class="process-node-ring"></div>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+          </svg>
+        </div>
+        <div class="process-timeline-content tilt3d process-timeline-content--right">
+          <div class="process-bg-num">02</div>
+          <div class="process-step-body">
+            <span class="process-step-num-label">02</span>
+            <h4 class="process-step-name">Execute</h4>
+            <p class="process-step-desc">Craftsmanship meets coordination. Our trusted network of contractors and
+              suppliers bring the design to life, on time and exactly to specification.</p>
+          </div>
+          <div class="process-step-icon-lg process-glass-panel">
+            <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+              <polyline points="9 22 9 12 15 12 15 22"></polyline>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 3: Handover -->
+      <div class="process-timeline-step reveal-up" data-step="03">
+        <div class="process-timeline-node">
+          <div class="process-node-ring"></div>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path
+              d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z">
+            </path>
+            <path d="M12 22V12"></path>
+            <polyline points="3.27 6.96 12 12 20.73 6.96"></polyline>
+            <line x1="12" y1="2" x2="12" y2="12"></line>
+          </svg>
+        </div>
+        <div class="process-timeline-content tilt3d process-timeline-content--left">
+          <div class="process-bg-num">03</div>
+          <div class="process-step-icon-lg process-glass-panel">
+            <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path
+                d="M11 21.73a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73z">
+              </path>
+              <path d="M12 22V12"></path>
+              <polyline points="3.27 6.96 12 12 20.73 6.96"></polyline>
+              <line x1="12" y1="2" x2="12" y2="12"></line>
+            </svg>
+          </div>
+          <div class="process-step-body">
+            <span class="process-step-num-label">03</span>
+            <h4 class="process-step-name">Handover</h4>
+            <p class="process-step-desc">A moment of pride — the keys, the walkthrough, the space that now belongs to
+              you. Every detail checked, every surface pristine, every expectation met or exceeded.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 4: Aftercare -->
+      <div class="process-timeline-step reveal-up" data-step="04">
+        <div class="process-timeline-node">
+          <div class="process-node-ring"></div>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"
+            stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            <path d="M11 8v3l2 2"></path>
+          </svg>
+        </div>
+        <div class="process-timeline-content tilt3d process-timeline-content--right">
+          <div class="process-bg-num">04</div>
+          <div class="process-step-body">
+            <span class="process-step-num-label">04</span>
+            <h4 class="process-step-name">Aftercare</h4>
+            <p class="process-step-desc">The relationship doesn't end at handover. Our aftercare commitment ensures your
+              space performs flawlessly for years to come — we remain a trusted partner, always.</p>
+          </div>
+          <div class="process-step-icon-lg process-glass-panel">
+            <svg width="56" height="56" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.2"
+              stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              <path d="M11 8v3l2 2"></path>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Conclusion Section -->
+  <section class="conclusion-section">
+    <div class="conclusion-content">
+      <div class="section-label"><span class="dot"></span> Begin Your Journey</div>
+      <h2 class="conclusion-title">Let's Create Something<br><em>Extraordinary</em></h2>
+      <p class="conclusion-text">From concept to completion, we transform visions into timeless spaces.</p>
+      <a href="contact.html" class="conclusion-cta"><span>Start Your Project</span></a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer" data-cursor-invert>
+    <div class="footer-container">
+      <div class="footer-logo">
+        <h1><img src="images/New IHA Logo (Black).png" alt="IH Atelier" class="footer-brand-logo" /></h1>
+      </div>
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <p><a href="index.html">Home</a></p>
+          <p><a href="services.html">Services</a></p>
+          <p><a href="projects.html">Projects</a></p>
+          <p><a href="about.html">About</a></p>
+          <p><a href="contact.html">Contact</a></p>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <p>Interior Design</p>
+          <p>Architecture</p>
+          <p>Contracting</p>
+          <p>Project Management</p>
+        </div>
+        <div class="footer-col">
+          <h4>Location</h4>
+          <p>Bay Square, Business Bay</p>
+          <p>Dubai, UAE</p>
+          <p style="margin-top: 0.5rem;"><a href="mailto:contact@ihgroup.in">contact@ihgroup.in</a></p>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <p><a href="tel:+971526786001" style="color: #fff; font-size: 1rem;">+971 526786001</a></p>
+          <p style="margin-top: 0.5rem; font-size: 0.7rem;">Careers:</p>
+          <p><a href="mailto:career@ihgroup.in" style="color: var(--gold-accent);">career@ihgroup.in</a></p>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-ih-group">A part of <span class="ih-group-brand">IH Group</span></div>
+      <p>IH Atelier &copy; 2026 &nbsp;—&nbsp; All rights reserved</p>
+    </div>
+  </footer>
+
+  <script src="script-v2.js?v=1772479700" defer></script>
+  <!-- Back to Top Button -->
+  <button type="button" class="back-to-top" id="back-to-top" aria-label="Back to top">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M18 15l-6-6-6 6" />
+    </svg>
+  </button>
+</body>
+
+</html>
