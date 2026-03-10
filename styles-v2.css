@@ -5526,7 +5526,7 @@ body.loading .loader-text {
   height: 80px;
   border-radius: 50%;
   object-fit: cover;
-  object-position: center 20%;
+  object-position: center 0%;
   border: 2px solid var(--gold-accent);
   box-shadow: 0 4px 16px rgba(107, 122, 140, 0.2);
 }
@@ -5720,7 +5720,7 @@ body::after {
   height: auto;
   aspect-ratio: 1;
   object-fit: cover;
-  object-position: center 20%;
+  object-position: center 0%;
   border-radius: 50%;
   filter: grayscale(20%);
   transition: filter var(--dur-mid) var(--ease);
