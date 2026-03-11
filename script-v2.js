@@ -59,8 +59,10 @@ document.addEventListener('DOMContentLoaded', () => {
   /* =========================================================================
      LENIS SMOOTH SCROLL — Premium Feel
      ========================================================================= */
+  // Lenis smooth scroll — desktop/pointer only; touch devices use native momentum
   let lenis;
-  if (typeof Lenis !== 'undefined') {
+  const isTouchDevice = window.matchMedia('(hover: none) or (pointer: coarse)').matches;
+  if (typeof Lenis !== 'undefined' && !isTouchDevice) {
     lenis = new Lenis({
       duration: 1.0,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
@@ -89,18 +91,15 @@ document.addEventListener('DOMContentLoaded', () => {
      ========================================================================= */
   const navbar = document.getElementById('navbar');
   if (navbar) {
-    let lastScroll = 0;
-
+    // rAF-gate: coalesce to one update per animation frame max
+    let _navTicking = false;
     window.addEventListener('scroll', () => {
-      const currentScroll = window.scrollY;
-
-      if (currentScroll > 80) {
-        navbar.classList.add('scrolled');
-      } else {
-        navbar.classList.remove('scrolled');
-      }
-
-      lastScroll = currentScroll;
+      if (_navTicking) return;
+      _navTicking = true;
+      requestAnimationFrame(() => {
+        navbar.classList.toggle('scrolled', window.scrollY > 80);
+        _navTicking = false;
+      });
     }, { passive: true });
   }
 
@@ -297,7 +296,8 @@ document.addEventListener('DOMContentLoaded', () => {
      ========================================================================= */
   const heroCanvas = document.getElementById('hero-canvas');
 
-  if (heroCanvas && typeof THREE !== 'undefined') {
+  // Skip 3D entirely on touch/mobile — saves ~1.5 MB of GPU work and battery
+  if (heroCanvas && typeof THREE !== 'undefined' && !isTouchDevice) {
     // Defer Three.js init slightly so CSS and layout paint first
     requestAnimationFrame(() => initHero3D(heroCanvas));
   }
@@ -307,7 +307,7 @@ document.addEventListener('DOMContentLoaded', () => {
      ========================================================================= */
   const blueprintCanvas = document.getElementById('about-blueprint-canvas');
 
-  if (blueprintCanvas && typeof THREE !== 'undefined') {
+  if (blueprintCanvas && typeof THREE !== 'undefined' && !isTouchDevice) {
     requestAnimationFrame(() => initBlueprint3D(blueprintCanvas));
   }
 
@@ -478,7 +478,12 @@ document.addEventListener('DOMContentLoaded', () => {
       logosTrack.style.setProperty('--logos-step', `-${slideWidth + margin}px`);
     };
     updateLogosStep();
-    window.addEventListener('resize', updateLogosStep, { passive: true });
+    // Debounced resize — avoids the raw CSS recalc on every resize event
+    let _logosResizeTimer;
+    window.addEventListener('resize', () => {
+      clearTimeout(_logosResizeTimer);
+      _logosResizeTimer = setTimeout(updateLogosStep, 150);
+    }, { passive: true });
   }
 
   /* =========================================================================
@@ -1036,12 +1041,12 @@ function initHero3D(canvas) {
     scrollProgress = Math.min(1, window.scrollY / (heroH * 0.8 || 1));
   }, { passive: true });
 
-  // Animation loop — pauses automatically when tab is hidden
+  // Animation loop — fully cancels when tab hidden or canvas off-screen
   let heroAnimRAF = null;
   let time = 0;
+
   function animate() {
     heroAnimRAF = requestAnimationFrame(animate);
-    if (document.hidden) return; // skip render work, keep rAF alive cheaply
     time += 0.0008;
 
     // Gentle floating
@@ -1066,6 +1071,20 @@ function initHero3D(canvas) {
 
     renderer.render(scene, camera);
   }
+
+  // Pause / resume helpers
+  const pauseHero  = () => { if (heroAnimRAF) { cancelAnimationFrame(heroAnimRAF); heroAnimRAF = null; } };
+  const resumeHero = () => { if (!heroAnimRAF) animate(); };
+
+  // Stop loop when tab goes to background; restart on focus
+  document.addEventListener('visibilitychange', () =>
+    document.hidden ? pauseHero() : resumeHero());
+
+  // Stop loop when canvas scrolls fully out of view
+  new IntersectionObserver(([entry]) =>
+    entry.isIntersecting ? resumeHero() : pauseHero(),
+    { threshold: 0 }
+  ).observe(canvas);
 
   animate();
 
@@ -1191,9 +1210,10 @@ function initBlueprint3D(canvas) {
   mainGroup.add(particles);
 
   let time = 0;
+  let blueprintRAF = null;
+
   function animate() {
-    requestAnimationFrame(animate);
-    if (document.hidden) return; // skip render work when tab not visible
+    blueprintRAF = requestAnimationFrame(animate);
     time += 0.004;
 
     // Smooth multi-axis rotation
@@ -1214,6 +1234,20 @@ function initBlueprint3D(canvas) {
 
     renderer.render(scene, camera);
   }
+
+  // Pause / resume helpers
+  const pauseBlueprint  = () => { if (blueprintRAF) { cancelAnimationFrame(blueprintRAF); blueprintRAF = null; } };
+  const resumeBlueprint = () => { if (!blueprintRAF) animate(); };
+
+  // Stop render loop when tab is hidden
+  document.addEventListener('visibilitychange', () =>
+    document.hidden ? pauseBlueprint() : resumeBlueprint());
+
+  // Stop render loop when canvas scrolls out of view
+  new IntersectionObserver(([entry]) =>
+    entry.isIntersecting ? resumeBlueprint() : pauseBlueprint(),
+    { threshold: 0 }
+  ).observe(canvas);
 
   animate();
 
