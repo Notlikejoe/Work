@@ -6549,3 +6549,316 @@ body::after {
     cursor: pointer !important;
   }
 }
+
+/* =========================================================================
+   SERVICES PAGE — MOBILE RESPONSIVE OVERRIDES
+   @media (max-width: 768px)
+   ========================================================================= */
+@media (max-width: 768px) {
+
+  /* -----------------------------------------------------------------------
+     GENERAL: Prevent horizontal scrolling
+     ----------------------------------------------------------------------- */
+  body,
+  main,
+  section,
+  .services,
+  .typologies,
+  .our-process {
+    overflow-x: hidden;
+    max-width: 100vw;
+  }
+
+  /* -----------------------------------------------------------------------
+     1. SERVICES INTRO — Responsive typography
+     ----------------------------------------------------------------------- */
+  .services {
+    padding-top: 80px;
+    padding-bottom: 60px;
+  }
+
+  .services-intro {
+    padding: 0 var(--sp-3) var(--sp-5);
+    max-width: 100%;
+  }
+
+  .services-heading {
+    font-size: clamp(1.75rem, 7vw, 2.4rem);
+    line-height: 1.2;
+    /* avoid mid-word breaks on very narrow screens */
+    overflow-wrap: break-word;
+    word-break: break-word;
+    hyphens: auto;
+  }
+
+  .services-desc {
+    font-size: clamp(0.875rem, 3.5vw, 1rem);
+    line-height: 1.7;
+  }
+
+  /* -----------------------------------------------------------------------
+     2. TWO-COLUMN SERVICES LAYOUT — Stack vertically
+     ----------------------------------------------------------------------- */
+  .services-two-columns {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    padding: var(--sp-4) var(--sp-3);
+    max-width: 100%;
+  }
+
+  /* Hide the vertical center divider; already hidden at 1024px but be explicit */
+  .services-divider {
+    display: none !important;
+  }
+
+  /* Build column: replace the gap made by the hidden divider with a subtle separator */
+  .services-column--build {
+    margin-top: var(--sp-5);
+    padding-top: var(--sp-5);
+    border-top: 1px solid var(--gold-border);
+  }
+
+  /* Cards take full container width */
+  .services-list {
+    gap: var(--sp-3);
+  }
+
+  .service-card-3d {
+    width: 100%;
+    box-sizing: border-box;
+    padding: var(--sp-3);
+  }
+
+  /* Card content: image on top, text below — cleaner on narrow screens */
+  .service-card-content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--sp-3);
+  }
+
+  .service-image-wrap {
+    width: 100%;
+    height: 200px;
+    flex-shrink: unset;
+  }
+
+  .service-card-text {
+    padding: 0;
+  }
+
+  .service-card-text h4 {
+    font-size: clamp(1rem, 4.5vw, 1.2rem);
+  }
+
+  /* Column header slightly smaller */
+  .column-title {
+    font-size: clamp(1.6rem, 6vw, 2.2rem);
+  }
+
+  /* -----------------------------------------------------------------------
+     3. TYPOLOGIES SECTION — Remove alternating layout
+     ----------------------------------------------------------------------- */
+  .typologies {
+    padding: 60px var(--sp-3);
+  }
+
+  .typo-main-title {
+    font-size: clamp(1.6rem, 6vw, 2.2rem);
+    margin-bottom: var(--sp-4);
+  }
+
+  .typo-rows-container {
+    padding: var(--sp-3) var(--sp-2);
+    border-radius: 16px;
+  }
+
+  .typo-row {
+    /* Override both --left and --right alternating flex orders:
+       icon on the left, text on the right, every row */
+    flex-direction: row;
+    align-items: center;
+    gap: var(--sp-3);
+    padding: var(--sp-4) 0;
+    flex-wrap: nowrap;
+  }
+
+  /* Force consistent order: icon left (1), divider hidden, text right (2) */
+  .typo-row--right .typo-row-text,
+  .typo-row--left .typo-row-text {
+    order: 2;
+    flex: 1;
+  }
+
+  .typo-row--right .typo-row-icon,
+  .typo-row--left .typo-row-icon {
+    order: 1;
+    flex-shrink: 0;
+  }
+
+  /* Hide the vertical divider rod between icon and text */
+  .typo-row-divider {
+    display: none;
+  }
+
+  /* Scale the icon cards down so they don't dominate the screen */
+  .typo-row-icon {
+    width: 88px;
+    height: 88px;
+    padding: var(--sp-3);
+    border-radius: 16px;
+    /* disable float animation while we're condensing the layout */
+    animation: none;
+  }
+
+  .typo-icon-3d {
+    width: 48px;
+    height: 48px;
+    animation: none;
+  }
+
+  .typo-row-name {
+    font-size: clamp(1.1rem, 5vw, 1.5rem);
+    margin: var(--sp-1) 0;
+  }
+
+  .typo-row-desc {
+    font-size: clamp(0.8rem, 3.2vw, 0.9rem);
+    max-width: 100%;
+    line-height: 1.6;
+  }
+
+  /* -----------------------------------------------------------------------
+     4. OUR PROCESS TIMELINE — Left-edge line, all cards right-aligned
+     ----------------------------------------------------------------------- */
+  .our-process {
+    padding: 60px var(--sp-3);
+  }
+
+  .process-main-title {
+    font-size: clamp(1.6rem, 6vw, 2.2rem);
+  }
+
+  .process-subtitle {
+    font-size: var(--fs-small);
+    letter-spacing: 0.1em;
+  }
+
+  .process-timeline-wrap {
+    /* Give enough left space for the line + node */
+    padding-left: 52px;
+    max-width: 100%;
+  }
+
+  /* Shift the vertical thread to the far left */
+  .process-vline {
+    left: 20px;
+    transform: none;
+  }
+
+  /* Each step: stretch full width, node pinned on left edge */
+  .process-timeline-step {
+    display: block;
+    position: relative;
+    padding: var(--sp-3) 0;
+  }
+
+  /* Node anchored to the left line */
+  .process-timeline-node {
+    left: -32px;    /* positions it over the vline at x=20px in the wrapper */
+    top: var(--sp-4);
+    transform: none;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+  }
+
+  /* Node SVG icon: scale to fit smaller node */
+  .process-timeline-node svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  /* All content boxes: full width, no left/right offset, stack vertically */
+  .process-timeline-content--left,
+  .process-timeline-content--right {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    flex-direction: row;    /* restore natural row inside card */
+    width: 100%;
+    box-sizing: border-box;
+    padding: var(--sp-3);
+    gap: var(--sp-3);
+  }
+
+  /* Hide the large glass panel icon to save space on mobile */
+  .process-step-icon-lg {
+    display: none;
+  }
+
+  /* Bg number: smaller on mobile */
+  .process-bg-num {
+    font-size: clamp(2rem, 8vw, 3rem);
+  }
+
+  .process-step-name {
+    font-size: clamp(1rem, 4.5vw, 1.2rem);
+  }
+
+  .process-step-desc {
+    font-size: clamp(0.8rem, 3.2vw, 0.875rem);
+    line-height: 1.65;
+  }
+
+  /* -----------------------------------------------------------------------
+     5. CONCLUSION SECTION — Tighter padding
+     ----------------------------------------------------------------------- */
+  .conclusion-section {
+    padding: 60px var(--sp-3);
+  }
+
+  .conclusion-title {
+    font-size: clamp(1.6rem, 6vw, 2.4rem);
+  }
+
+  /* -----------------------------------------------------------------------
+     GENERAL SECTION SPACING — Reduce desktop paddings to mobile values
+     ----------------------------------------------------------------------- */
+
+  /* Services intro section top spacing already handled via .services above */
+  .typologies {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+
+  .our-process {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+
+} /* end @media (max-width: 768px) */
+
+/* Small phone refinements — 480px breakpoint */
+@media (max-width: 480px) {
+  .services-two-columns {
+    padding: var(--sp-3) var(--sp-2);
+  }
+
+  .service-image-wrap {
+    height: 160px;
+  }
+
+  .typo-row-icon {
+    width: 72px;
+    height: 72px;
+  }
+
+  .typo-icon-3d {
+    width: 36px;
+    height: 36px;
+  }
+
+  .process-timeline-wrap {
+    padding-left: 44px;
+  }
+}
