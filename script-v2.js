@@ -250,10 +250,26 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!_efpTimer) {
         _efpTimer = setTimeout(() => {
           const el = document.elementFromPoint(mouseX, mouseY);
-          const nowDark = el ? el.closest(DARK_CURSOR_SELECTOR) !== null : false;
-          if (nowDark !== overDark) {
-            overDark = nowDark;
-            applyCursorColor(overDark);
+          if (el) {
+            const nowDark = el.closest(DARK_CURSOR_SELECTOR) !== null;
+            if (nowDark !== overDark) {
+              overDark = nowDark;
+              applyCursorColor(overDark);
+            }
+            
+            // Fallback for hover states (e.g. when returning to window or window is inactive)
+            const isHoverable = el.closest('a, button, .gallery-item, .project-card, .tilt-card, input, textarea') !== null;
+            if (isHoverable) {
+              cursor.classList.add('expanded');
+              follower.classList.add('expanded');
+            } else {
+              cursor.classList.remove('expanded');
+              follower.classList.remove('expanded');
+            }
+
+            const isText = el.closest('input[type="text"], input[type="email"], textarea') !== null;
+            if (isText) cursor.classList.add('text-mode');
+            else cursor.classList.remove('text-mode');
           }
           _efpTimer = null;
         }, 100);

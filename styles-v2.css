@@ -5722,12 +5722,6 @@ body::after {
   object-fit: cover;
   object-position: center 0%;
   border-radius: 50%;
-  filter: grayscale(20%);
-  transition: filter var(--dur-mid) var(--ease);
-}
-
-.about-founder-image img:hover {
-  filter: grayscale(0%);
 }
 
 /* =========================================================================
