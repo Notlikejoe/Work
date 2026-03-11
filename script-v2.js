@@ -183,6 +183,10 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!cursorRAF) cursorRAF = requestAnimationFrame(updateCursor);
     };
 
+    // Half-sizes match CSS: cursor=10px → 5, follower=44px → 22
+    const CURSOR_HALF = 5;
+    const FOLLOWER_HALF = 22;
+
     const updateCursor = () => {
       cursorRAF = null;
       const dx = mouseX - followerX;
@@ -190,9 +194,8 @@ document.addEventListener('DOMContentLoaded', () => {
       followerX += dx * 0.12;
       followerY += dy * 0.12;
 
-      // Use transform instead of left/top — compositor-only, zero reflow
-      cursor.style.transform = `translate(calc(${mouseX}px - 50%), calc(${mouseY}px - 50%))`;
-      follower.style.transform = `translate(calc(${followerX}px - 50%), calc(${followerY}px - 50%))`;
+      // translate3d triggers GPU compositing — faster than translate(calc(...))
+      follower.style.transform = `translate3d(${followerX - FOLLOWER_HALF}px,${followerY - FOLLOWER_HALF}px,0)`;
 
       // Keep looping only while follower is still catching up (> 0.05px away)
       if (Math.abs(dx) > 0.05 || Math.abs(dy) > 0.05) {
@@ -233,7 +236,11 @@ document.addEventListener('DOMContentLoaded', () => {
       mouseY = e.clientY;
       if (!cursorVisible) showCursor();
 
-      // Kick off the rAF loop on each mouse move (self-cancels once settled)
+      // Dot cursor: update instantly in mousemove (not rAF) so it never lags
+      // behind the physical pointer — critical on high-refresh-rate Windows screens
+      cursor.style.transform = `translate3d(${mouseX - CURSOR_HALF}px,${mouseY - CURSOR_HALF}px,0)`;
+
+      // Follower ring: rAF-driven lerp for the intentional trailing effect
       scheduleCursorUpdate();
 
       // Throttle elementFromPoint to ~10fps — avoids forced layout on every mousemove

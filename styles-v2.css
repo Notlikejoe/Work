@@ -118,6 +118,8 @@
 
 html {
   scroll-behavior: auto;
+  overflow-x: hidden;
+  /* prevent any child from widening the document */
 }
 
 body {
@@ -125,6 +127,8 @@ body {
   background-color: var(--bg);
   color: var(--white);
   overflow-x: hidden;
+  max-width: 100vw;
+  /* belt-and-suspenders against wide children */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -386,6 +390,10 @@ h4 {
 .page-loader {
   position: fixed;
   inset: 0;
+  /* Explicitly fill the full viewport — immune to body/html max-width */
+  width: 100vw;
+  height: 100vh;
+  min-height: -webkit-fill-available;
   z-index: 99999;
   background: var(--bg);
   display: flex;
@@ -6243,5 +6251,201 @@ body::after {
     flex: 0 0 78vw;
     width: 78vw;
     margin: 0 8px;
+  }
+}
+
+/* =========================================================================
+   MOBILE COMPREHENSIVE FIXES
+   ========================================================================= */
+
+/* --- LOADER: force centered logo on all mobile screens --- */
+@media (max-width: 768px) {
+  .loader-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 var(--sp-4);
+  }
+
+  .loader-logo-img {
+    height: clamp(60px, 18vw, 100px);
+    width: auto;
+    max-width: 55vw;
+    display: block;
+    margin: 0 auto;
+  }
+}
+
+/* --- NAVBAR: solid & always visible on mobile --- */
+@media (max-width: 768px) {
+  .navbar {
+    height: 60px;
+    padding: 0 var(--sp-3);
+    /* Ensure navbar never exceeds viewport width */
+    width: 100% !important;
+    max-width: 100vw !important;
+    box-sizing: border-box !important;
+    left: 0 !important;
+    right: 0 !important;
+    background: var(--bg) !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    border-bottom: 1px solid var(--gold-border) !important;
+    justify-content: space-between;
+    overflow: hidden;
+    /* clip any accidental overflow inside navbar */
+  }
+
+  /* Logo: pull out of absolute positioning, stay in flex flow */
+  .nav-logo {
+    position: static !important;
+    transform: none !important;
+    left: auto !important;
+    flex-shrink: 0;
+  }
+
+  .nav-logo-img {
+    height: 28px;
+  }
+
+  /* Hide nav links and CTA on mobile — hamburger is the only right-side control */
+  .nav-links,
+  .nav-cta {
+    display: none !important;
+  }
+
+  /* Hamburger: always visible, pushed to far right */
+  .menu-btn {
+    display: flex !important;
+    margin-left: auto;
+    flex-shrink: 0;
+  }
+
+  /* Hide decorative orbs on mobile — they have fixed 500-700px widths */
+  .orb {
+    display: none !important;
+  }
+}
+
+/* --- HERO: prevent text overflow & fix viewport height --- */
+@media (max-width: 768px) {
+  .hero {
+    min-height: 100svh;
+    overflow-x: hidden;
+  }
+
+  .hero-box {
+    padding: var(--sp-3) var(--sp-2);
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* Hero headline — was 7rem min which overflows on phones */
+  .hero-brand {
+    font-size: clamp(3.2rem, 16vw, 6rem);
+    letter-spacing: 0.06em;
+  }
+
+  .hero-pretitle {
+    font-size: 0.6rem;
+    letter-spacing: 0.25em;
+    margin-bottom: var(--sp-2);
+  }
+
+  /* Hide decorative side lines on small screens */
+  .hero-pretitle::before,
+  .hero-pretitle::after {
+    display: none;
+  }
+
+  .hero-tagline {
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    margin-top: var(--sp-3);
+  }
+
+  .hero-subtitle {
+    font-size: clamp(0.8rem, 3vw, 1rem);
+    margin-top: var(--sp-3);
+    max-width: 90vw;
+  }
+
+  .scroll-indicator {
+    display: none;
+  }
+}
+
+/* --- CONTENT SECTIONS: prevent text/image overflow on mobile --- */
+@media (max-width: 768px) {
+
+  /* Black banner text must stay within viewport */
+  .black-banner {
+    overflow: hidden;
+    width: 100%;
+    padding: var(--sp-6) var(--sp-3);
+    box-sizing: border-box;
+  }
+
+  .black-banner h2 {
+    font-size: clamp(1.4rem, 6vw, 2.2rem);
+    word-break: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    max-width: 100%;
+  }
+
+  /* View-feel section images — clip to viewport */
+  .view-feel {
+    overflow: hidden;
+    max-width: 100%;
+  }
+
+  /* Any wide image-wrapper must stay within bounds */
+  .image-wrapper {
+    max-width: 100%;
+    overflow: hidden;
+  }
+}
+
+/* --- GLOBAL: prevent horizontal overflow on mobile --- */
+@media (max-width: 768px) {
+
+  html,
+  body {
+    overflow-x: hidden !important;
+    max-width: 100vw;
+    width: 100%;
+  }
+
+  /* Common section wrapper padding */
+  .container,
+  [class*="-section"]>*,
+  .about-grid,
+  .services-preview-grid {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+}
+
+/* --- SMALL PHONES (≤480px) additional tweaks --- */
+@media (max-width: 480px) {
+  .navbar {
+    height: 54px;
+    padding: 0 var(--sp-2);
+  }
+
+  .nav-logo-img {
+    height: 24px;
+  }
+
+  .hero-brand {
+    font-size: clamp(2.8rem, 18vw, 5rem);
+  }
+
+  .loader-logo-img {
+    max-width: 60vw;
+    height: clamp(50px, 20vw, 80px);
   }
 }
