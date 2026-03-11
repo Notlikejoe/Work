@@ -24,6 +24,10 @@ window.addEventListener('error', (e) => {
 
 document.addEventListener('DOMContentLoaded', () => {
 
+  // Single source of truth: true only on real pointer devices (desktop/laptop).
+  // Touch phones/tablets return false even if they occasionally fire mouse events.
+  const isPointerFine = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
   /* =========================================================================
      PAGE LOADER — Cinematic Reveal
      ========================================================================= */
@@ -382,78 +386,84 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
 
-    // Blueprint section parallax
-    const blueprintSection = document.querySelector('.blueprint-section');
-    if (blueprintSection) {
-      gsap.to('.blueprint-left', {
-        y: -50,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: blueprintSection,
-          start: 'top bottom',
-          end: 'bottom top',
-          scrub: 1,
-        },
-      });
-    }
-
-    // Image parallax
-    document.querySelectorAll('.view-feel .image-wrapper').forEach(wrapper => {
-      const img = wrapper.querySelector('img');
-      if (img) {
-        gsap.fromTo(img, {
-          scale: 1.1,
-          y: -30,
-        }, {
-          scale: 1.2,
-          y: 30,
+    // Parallax effects — skip on touch devices to avoid scroll jank
+    if (isPointerFine) {
+      // Blueprint section parallax
+      const blueprintSection = document.querySelector('.blueprint-section');
+      if (blueprintSection) {
+        gsap.to('.blueprint-left', {
+          y: -50,
           ease: 'none',
           scrollTrigger: {
-            trigger: wrapper,
+            trigger: blueprintSection,
             start: 'top bottom',
             end: 'bottom top',
-            scrub: 0.5,
+            scrub: 1,
           },
         });
       }
-    });
+
+      // Image parallax
+      document.querySelectorAll('.view-feel .image-wrapper').forEach(wrapper => {
+        const img = wrapper.querySelector('img');
+        if (img) {
+          gsap.fromTo(img, {
+            scale: 1.1,
+            y: -30,
+          }, {
+            scale: 1.2,
+            y: 30,
+            ease: 'none',
+            scrollTrigger: {
+              trigger: wrapper,
+              start: 'top bottom',
+              end: 'bottom top',
+              scrub: 0.5,
+            },
+          });
+        }
+      });
+    }
   }
 
   /* =========================================================================
-     MAGNETIC BUTTONS — Premium Interaction
+     MAGNETIC BUTTONS — Premium Interaction (desktop/pointer only)
      ========================================================================= */
-  const magneticBtns = document.querySelectorAll('.nav-cta, .explore-btn, .lux-project-cta, .nav-arrow, .nav-arrow-light');
+  // Magnetic pull is meaningless on touch — skip entirely to avoid wasted listeners
+  if (isPointerFine) {
+    const magneticBtns = document.querySelectorAll('.nav-cta, .explore-btn, .lux-project-cta, .nav-arrow, .nav-arrow-light');
 
-  magneticBtns.forEach(btn => {
-    // Cache rect on enter — avoids a layout read on every mousemove tick
-    let cachedRect = null;
-    btn.addEventListener('mouseenter', () => {
-      cachedRect = btn.getBoundingClientRect();
-    }, { passive: true });
+    magneticBtns.forEach(btn => {
+      // Cache rect on enter — avoids a layout read on every mousemove tick
+      let cachedRect = null;
+      btn.addEventListener('mouseenter', () => {
+        cachedRect = btn.getBoundingClientRect();
+      }, { passive: true });
 
-    btn.addEventListener('mousemove', (e) => {
-      if (!cachedRect) cachedRect = btn.getBoundingClientRect();
-      const x = e.clientX - cachedRect.left - cachedRect.width / 2;
-      const y = e.clientY - cachedRect.top - cachedRect.height / 2;
+      btn.addEventListener('mousemove', (e) => {
+        if (!cachedRect) cachedRect = btn.getBoundingClientRect();
+        const x = e.clientX - cachedRect.left - cachedRect.width / 2;
+        const y = e.clientY - cachedRect.top - cachedRect.height / 2;
 
-      gsap.to(btn, {
-        x: x * 0.35,
-        y: y * 0.35,
-        duration: 0.4,
-        ease: 'power2.out',
-      });
+        gsap.to(btn, {
+          x: x * 0.35,
+          y: y * 0.35,
+          duration: 0.4,
+          ease: 'power2.out',
+        });
+      }, { passive: true });
+
+      btn.addEventListener('mouseleave', () => {
+        cachedRect = null;
+        gsap.to(btn, {
+          x: 0,
+          y: 0,
+          duration: 0.6,
+          ease: 'elastic.out(1, 0.4)',
+        });
+      }, { passive: true });
     });
-
-    btn.addEventListener('mouseleave', () => {
-      cachedRect = null;
-      gsap.to(btn, {
-        x: 0,
-        y: 0,
-        duration: 0.6,
-        ease: 'elastic.out(1, 0.4)',
-      });
-    });
-  });
+  }
 
   /* =========================================================================
      CLIENT LOGOS — Seamless loop (exact pixel step so no jump at Joyalukkas)
@@ -468,7 +478,7 @@ document.addEventListener('DOMContentLoaded', () => {
       logosTrack.style.setProperty('--logos-step', `-${slideWidth + margin}px`);
     };
     updateLogosStep();
-    window.addEventListener('resize', updateLogosStep);
+    window.addEventListener('resize', updateLogosStep, { passive: true });
   }
 
   /* =========================================================================
@@ -501,7 +511,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('resize', () => {
       clearTimeout(resizeTimeout);
       resizeTimeout = setTimeout(updateItemWidth, 150);
-    });
+    }, { passive: true });
 
     const updateGallery = (animate = true) => {
       // Cancel any pending update to avoid duplicate work
@@ -518,7 +528,8 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
           galleryTrack.style.transition = 'none';
         }
-        galleryTrack.style.transform = `translateX(${offset}px)`;
+        // translate3d promotes the track to its own compositor layer — no repaint on slide
+        galleryTrack.style.transform = `translate3d(${offset}px,0,0)`;
         pendingUpdate = null;
       });
     };
@@ -735,34 +746,38 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   /* =========================================================================
-     3D TILT EFFECT ON CARDS
+     3D TILT EFFECT ON CARDS (desktop/pointer only)
      ========================================================================= */
-  const tiltCards = document.querySelectorAll('.tilt-card, .project-card');
+  // Touch events can fire synthetic mouse events — guarding avoids unnecessary
+  // GSAP layout work on every tap on mobile.
+  if (isPointerFine) {
+    const tiltCards = document.querySelectorAll('.tilt-card, .project-card');
 
-  tiltCards.forEach(card => {
-    card.addEventListener('mousemove', (e) => {
-      const rect = card.getBoundingClientRect();
-      const x = (e.clientX - rect.left) / rect.width - 0.5;
-      const y = (e.clientY - rect.top) / rect.height - 0.5;
+    tiltCards.forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = (e.clientX - rect.left) / rect.width - 0.5;
+        const y = (e.clientY - rect.top) / rect.height - 0.5;
 
-      gsap.to(card, {
-        rotateY: x * 8,
-        rotateX: -y * 8,
-        duration: 0.4,
-        ease: 'power2.out',
-        transformPerspective: 1000,
-      });
+        gsap.to(card, {
+          rotateY: x * 8,
+          rotateX: -y * 8,
+          duration: 0.4,
+          ease: 'power2.out',
+          transformPerspective: 1000,
+        });
+      }, { passive: true });
+
+      card.addEventListener('mouseleave', () => {
+        gsap.to(card, {
+          rotateY: 0,
+          rotateX: 0,
+          duration: 0.6,
+          ease: 'power2.out',
+        });
+      }, { passive: true });
     });
-
-    card.addEventListener('mouseleave', () => {
-      gsap.to(card, {
-        rotateY: 0,
-        rotateX: 0,
-        duration: 0.6,
-        ease: 'power2.out',
-      });
-    });
-  });
+  }
 
   /* =========================================================================
      ANIMATED COUNTERS
@@ -845,8 +860,8 @@ function initHeroAnimations() {
     }, '-=0.4');
   }
 
-  // Add parallax to hero box
-  if (heroBox) {
+  // Hero parallax — skip on touch to prevent scroll jank
+  if (heroBox && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
     gsap.to(heroBox, {
       y: 100,
       ease: 'none',
@@ -1001,12 +1016,14 @@ function initHero3D(canvas) {
   let mouseY = 0;
   let scrollProgress = 0;
 
-  // Mouse tracking
-  document.addEventListener('mousemove', (e) => {
-    mouseX = (e.clientX / window.innerWidth - 0.5);
-    mouseY = (e.clientY / window.innerHeight - 0.5);
-    targetRotY = -Math.PI / 6 + mouseX * 0.15;
-  });
+  // Mouse tracking — desktop only; touch devices have no mouse to track
+  if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    document.addEventListener('mousemove', (e) => {
+      mouseX = (e.clientX / window.innerWidth - 0.5);
+      mouseY = (e.clientY / window.innerHeight - 0.5);
+      targetRotY = -Math.PI / 6 + mouseX * 0.15;
+    }, { passive: true });
+  }
 
   // Scroll tracking — cache offsetHeight so scroll handler never triggers layout
   const heroEl = document.getElementById('home');

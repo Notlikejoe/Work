@@ -6451,3 +6451,78 @@ body::after {
     height: clamp(50px, 20vw, 80px);
   }
 }
+
+/* =========================================================================
+   TOUCH DEVICE PERFORMANCE & UX POLISH
+   — Applied only to coarse-pointer (finger/stylus) devices.
+   ========================================================================= */
+
+/* --- GPU memory: release will-change on elements whose JS effects are disabled --- */
+@media (hover: none) and (pointer: coarse) {
+  .gallery-item,
+  .project-card,
+  .tilt-card,
+  .tilt3d,
+  .hero-parallax-layer,
+  .hero-photo,
+  .gallery-track {
+    /* JS parallax/tilt is disabled on touch; no need to hold compositor layers */
+    will-change: auto;
+  }
+}
+
+/* --- Touch targets: WCAG 2.5.5 — minimum 44×44 px for all interactive controls --- */
+@media (hover: none) and (pointer: coarse) {
+  #gallery-prev,
+  #gallery-next,
+  #proj-prev,
+  #proj-next,
+  .carousel-arrow,
+  .nav-arrow,
+  .nav-arrow-light,
+  #menu-btn,
+  .menu-btn,
+  #menu-close-btn,
+  .menu-close-btn {
+    min-width: 44px;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/* --- Touch scrolling: tell the browser which axis we own so it can hand off
+      the other axis to native scroll without waiting for JS --- */
+@media (hover: none) and (pointer: coarse) {
+  /* Sections that only scroll vertically — browser keeps native momentum */
+  .concept-gallery,
+  .projects-carousel-viewport,
+  .menu-overlay {
+    touch-action: pan-y;
+  }
+
+  /* Gallery wrapper clips the track; the wrapper itself doesn't scroll */
+  .gallery-wrapper {
+    touch-action: none;
+  }
+}
+
+/* --- Cursor: belt-and-suspenders hide on any coarse-pointer device ---
+   (The JS already skips init via matchMedia, this covers edge cases
+    like hybrid laptop/tablet modes where JS might momentarily add the class) --- */
+@media (pointer: coarse) {
+  .cursor,
+  .cursor-follower {
+    display: none !important;
+  }
+
+  body.has-custom-cursor {
+    cursor: auto !important;
+  }
+
+  body.has-custom-cursor a,
+  body.has-custom-cursor button {
+    cursor: pointer !important;
+  }
+}
