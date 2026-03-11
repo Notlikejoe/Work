@@ -4923,18 +4923,25 @@ body.loading .loader-text {
 
 @media (max-width: 768px) {
   .projects-grid-creative {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-4);
   }
 
   .project-featured,
   .project-wide,
   .project-standard {
-    grid-column: span 1;
+    width: 100% !important;
+    grid-column: unset !important;
+    grid-row: unset !important;
   }
 
   .project-featured .project-image-wrapper {
-    position: absolute;
-    inset: 0;
+    position: relative;
+    height: 350px;
+  }
+
+  .project-featured .project-card-inner {
     height: auto;
   }
 
