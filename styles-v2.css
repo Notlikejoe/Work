@@ -781,6 +781,10 @@ body.loading .loader-text {
   right: 1.5rem;
   font-size: 2.5rem;
   color: var(--bg);
+  background: transparent;
+  border: none;
+  outline: none;
+  padding: 0;
   cursor: pointer;
   transition: transform var(--dur-fast) var(--ease-back);
   width: 44px;
