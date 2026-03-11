@@ -1274,7 +1274,8 @@ body.loading .loader-text {
 
 .blueprint-subtext {
   font-size: var(--fs-small);
-  color: var(--text-muted);
+  color: var(--text);
+  /* Black per user request */
   font-style: normal;
   margin-bottom: var(--sp-5);
 }
@@ -5921,7 +5922,8 @@ body::after {
   font-size: var(--fs-xs);
   letter-spacing: var(--ls-caps);
   text-transform: uppercase;
-  color: var(--text-muted);
+  color: var(--text);
+  /* Black per user request */
   margin-top: var(--sp-2);
 }
 
