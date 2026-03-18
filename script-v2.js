@@ -183,7 +183,18 @@ document.addEventListener('DOMContentLoaded', () => {
     // rAF handle — null when loop is idle (demand-driven, not infinite)
     let cursorRAF = null;
     const scheduleCursorUpdate = () => {
-      if (!cursorRAF) cursorRAF = requestAnimationFrame(updateCursor);
+      // Fallback for inactive windows where rAF might be suspended
+      if (!document.hasFocus()) {
+        followerX = mouseX;
+        followerY = mouseY;
+        follower.style.transform = `translate3d(${followerX - FOLLOWER_HALF}px,${followerY - FOLLOWER_HALF}px,0)`;
+        if (cursorRAF) {
+          cancelAnimationFrame(cursorRAF);
+          cursorRAF = null;
+        }
+      } else if (!cursorRAF) {
+        cursorRAF = requestAnimationFrame(updateCursor);
+      }
     };
 
     // Half-sizes match CSS: cursor=10px → 5, follower=44px → 22
@@ -260,11 +271,11 @@ document.addEventListener('DOMContentLoaded', () => {
             // Fallback for hover states (e.g. when returning to window or window is inactive)
             const isHoverable = el.closest('a, button, .gallery-item, .project-card, .tilt-card, input, textarea') !== null;
             if (isHoverable) {
-              cursor.classList.add('expanded');
-              follower.classList.add('expanded');
+              cursor.classList.add('focus');
+              follower.classList.add('focus');
             } else {
-              cursor.classList.remove('expanded');
-              follower.classList.remove('expanded');
+              cursor.classList.remove('focus');
+              follower.classList.remove('focus');
             }
 
             const isText = el.closest('input[type="text"], input[type="email"], textarea') !== null;
@@ -290,12 +301,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     hoverables.forEach(el => {
       el.addEventListener('mouseenter', () => {
-        cursor.classList.add('expanded');
-        follower.classList.add('expanded');
+        cursor.classList.add('focus');
+        follower.classList.add('focus');
       });
       el.addEventListener('mouseleave', () => {
-        cursor.classList.remove('expanded');
-        follower.classList.remove('expanded');
+        cursor.classList.remove('focus');
+        follower.classList.remove('focus');
       });
     });
 
@@ -637,9 +648,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (carouselViewport && carouselTrack && typeof gsap !== 'undefined') {
     const carouselCards = Array.from(carouselTrack.querySelectorAll('.carousel-card'));
-    // Layout: [clone_B1, clone_B2, real_0, real_1, real_2, clone_A1, clone_A2] = 7 total
+    // Layout: [clone_B1, clone_B2, real_0..real_6, clone_A1, clone_A2] = 11 total
     const totalCards = carouselCards.length;
-    const realCount = 5;                          // 5 real projects
+    const realCount = 7;                          // 7 real projects
     const clonesPerSide = (totalCards - realCount) / 2; // = 2
 
     let activeIndex = clonesPerSide; // Start on real card 0
